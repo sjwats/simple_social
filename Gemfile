@@ -32,6 +32,8 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+gem 'devise'
+
 group :development, :test do
       gem "rspec-rails"
       gem "factory_girl_rails"
@@ -39,6 +41,7 @@ group :development, :test do
       gem "shoulda-matchers"
       gem "capybara"
       gem "launchy"
+      gem "validates_timeliness"
 end
 
 # Use ActiveModel has_secure_password
