@@ -7,10 +7,18 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
 <% flash.each do |name, msg| %>
   <%= msg %> <br>
 <% end %>
+
+<nav>
+  <ul>
+    <li><%= link_to 'Sign Up Here', new_user_registration_path </li>
+  </ul>
+
+</nav>
+<p class="notice"> <%= notice %> </p>
+<p class="alert"> <%= alert %> </p>
 
 <%= yield %>
 
