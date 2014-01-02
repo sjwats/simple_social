@@ -36,6 +36,10 @@ gem 'devise'
 
 gem 'validates_email_format_of'
 
+gem 'simple_form'
+
+gem 'foundation-rails'
+
 group :development, :test do
       gem "rspec-rails"
       gem "factory_girl_rails"
