@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class ProfilesController < ApplicationController
   def index
     @users = User.all
   end
@@ -7,9 +7,9 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-
   private
-  def user_params
+
+  def profile_params
     params.require(:user).permit(:first_name, :last_name, :email)
   end
 end

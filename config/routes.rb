@@ -1,7 +1,8 @@
 SimpleSocial::Application.routes.draw do
   devise_for :users
-  root 'users#index'
-  resources :users
+  root 'profiles#index'
+  resources :profiles
+  #resources :users
   #get 'users/:id' => 'users#show'
 
   # The priority is based upon order of creation: first created -> highest priority.
