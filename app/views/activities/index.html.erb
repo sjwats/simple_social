@@ -1,0 +1,7 @@
+<h2> Select Your Favorite Activities </h2>
+
+<% @activities.each do |activity| %>
+  <%= activity.name %>
+<% end %>
+
+<%= link_to "Add a new activity to the list", new_activity_path %>
