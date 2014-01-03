@@ -48,7 +48,6 @@ feature 'user signs in' do
     visit new_user_session_path
     expect(page).to have_content('You are already signed in.')
     expect(page).to_not have_content('Signed in successfully. Welcome Back!')
-
   end
 
 
