@@ -12,7 +12,7 @@ class ActivitiesController < ApplicationController
     if @activity.save
       redirect_to activities_path, notice: 'Successfully added an activity'
     else
-      render :new
+      redirect_to new_activity_path, notice: 'Please fill out all required information'
     end
   end
 
