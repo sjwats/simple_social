@@ -1,0 +1,8 @@
+<%= simple_form_for @contact do |f| %>
+  <%= f.input :first_name %>
+  <%= f.input :last_name %>
+  <%= f.input :email %>
+  <%= f.input :subject %>
+  <%= f.input :description, as: :text %>
+  <%= f.submit 'Submit Contact Form' %>
+<% end %>

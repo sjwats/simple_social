@@ -40,16 +40,28 @@ gem 'simple_form'
 
 gem 'foundation-rails'
 
+gem "validates_timeliness"
+
+group :test do
+  gem "factory_girl_rails"
+end
+
 group :development, :test do
       gem "rspec-rails"
-      gem "factory_girl_rails"
       gem "valid_attribute"
       gem "shoulda-matchers"
       gem "capybara"
       gem "launchy"
-      gem "validates_timeliness"
       gem "pry-rails"
+      gem "email_spec"
+      gem "mailcatcher"
 end
+
+group :staging, :production do
+  gem 'rails_12factor'
+end
+
+ruby "2.0.0"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'

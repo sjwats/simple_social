@@ -3,6 +3,7 @@ SimpleSocial::Application.routes.draw do
   root 'profiles#index'
   resources :profiles
   resources :activities
+  resources :contacts
   #resources :users
   #get 'users/:id' => 'users#show'
 
