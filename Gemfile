@@ -53,6 +53,8 @@ group :development, :test do
       gem "capybara"
       gem "launchy"
       gem "pry-rails"
+      gem "email_spec"
+      gem "mailcatcher"
 end
 
 group :staging, :production do
