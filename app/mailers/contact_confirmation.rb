@@ -6,9 +6,10 @@ class ContactConfirmation < ActionMailer::Base
   #
   #   en.contact_confirmation.receipt.subject
   #
-  def receipt
-    @greeting = "Hi"
+  def receipt(contact)
+    @contact = contact
 
-    mail to: contact.email
+    mail to: 's.johnwatson@gmail.com',
+      subject: contact.subject
   end
 end

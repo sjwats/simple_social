@@ -5,7 +5,7 @@ class ContactsController < ApplicationController
 
   def create
     @contact = Contact.new(contact_params)
-    if @contact.save
+    if @contact.submit_contact_info
       redirect_to profiles_path, notice: 'Submission successful. Somebody will get back to you shortly.'
     else
       render :new

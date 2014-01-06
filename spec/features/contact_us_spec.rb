@@ -20,7 +20,10 @@ feature 'visitor can contact site staff' do
     expect(ActionMailer::Base.deliveries.size).to eql(1)
     last_email = ActionMailer::Base.deliveries.last
     expect(last_email).to have_subject('Subject line')
-    expect(last_email).to deliver_to(user@example.com)
+    expect(last_email).to deliver_to('s.johnwatson@gmail.com')
+    expect(last_email).to have_body_text(/John Watson/)
+    expect(last_email).to have_body_text(/Extremely detailed/)
+
   end
 
   scenario 'with invalid attributes' do
@@ -44,6 +47,5 @@ feature 'visitor can contact site staff' do
     end
   end
 
-  scenario ''
 
 end
