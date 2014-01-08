@@ -3,16 +3,28 @@ require 'spec_helper'
 feature 'user can see list of activities' do
   scenario 'user can navigate to an activity list' do
     user = FactoryGirl.create(:user)
-    visit '/'
-    click_link 'Sign In'
-    fill_in 'Email', with: user.email
-    fill_in 'Password', with: user.password
-    click_button 'Sign In'
+    sign_in_as(user)
     click_link 'Activities List'
     expect(page).to have_content('Select Your Favorite Activities')
   end
 
-  scenario 'user can see an activity list'
+  scenario 'user can select activities they prefer' do
+    user = FactoryGirl.create(:user)
+    foosball = Activity.create(name: 'Foosball')
+    running = Activity.create(name: 'Running')
+    sign_in_as(user)
+    click_link 'Activities List'
+    #save_and_open_page
+    #binding.pry
+    check foosball.name
+    check running.name
+    click_on 'Save Preferred Activities'
+    expect(page).to have_content(foosball)
+    expect(page).to have_content(running)
+    expect(page).to have_content('Preferred Activities Updated!')
+    Activity.destroy_all
+
+  end
 
   # scenario 'user can add an activity to the list' do
   #   user = FactoryGirl.create(:user)

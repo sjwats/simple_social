@@ -1,7 +1,6 @@
 <h2> Select Your Favorite Activities </h2>
 
-<% @activities.each do |activity| %>
-  <%= activity.name %>
+<%= simple_form_for current_user do |f| %>
+  <%= f.association :activities, as: :check_boxes,collection: Activity.all %>
+  <%= f.submit 'Save Preferred Activities' %>
 <% end %>
-
-<%= link_to "Add a new activity to the list", new_user_activity_path(current_user) %>
