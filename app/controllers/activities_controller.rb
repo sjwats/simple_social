@@ -10,7 +10,7 @@ class ActivitiesController < ApplicationController
   def create
     @activity = Activity.new(activity_params)
     if @activity.save
-      redirect_to activities_path, notice: 'Successfully added an activity'
+      redirect_to user_activities_path, notice: 'Successfully added an activity'
     else
       render :new
     end

@@ -18,9 +18,9 @@ describe Contact do
   it { should have_valid(:description).when('This is the description. This is more of it.') }
   it { should_not have_valid(:description).when(nil, '') }
 
-  it 'sends and email when contact submission is successful' do
-    prev_mail_count = ActionMailer::Base.deliveries.count
-    FactoryGirl.build(:contact).
-  end
+  # it 'sends and email when event is successfuly created' do
+  #   prev_mail_count = ActionMailer::Base.deliveries.count
+  #   FactoryGirl.build(:contact).
+  # end
 
 end
