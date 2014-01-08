@@ -12,6 +12,8 @@ feature 'user can see list of activities' do
     expect(page).to have_content('Select Your Favorite Activities')
   end
 
+  scenario 'user can see an activity list'
+
   # scenario 'user can add an activity to the list' do
   #   user = FactoryGirl.create(:user)
   #   visit '/'
