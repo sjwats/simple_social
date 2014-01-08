@@ -1,8 +1,12 @@
 SimpleSocial::Application.routes.draw do
   devise_for :users
-  root 'profiles#index'
+  root 'pages#index'
   resources :profiles
-  resources :activities
+  resources :users do
+    resources :activities
+  end
+
+
   resources :contacts
   #resources :users
   #get 'users/:id' => 'users#show'
