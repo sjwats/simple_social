@@ -14,14 +14,14 @@ feature 'user can see list of activities' do
     running = Activity.create(name: 'Running')
     sign_in_as(user)
     click_link 'Activities List'
-    #save_and_open_page
-    #binding.pry
     check foosball.name
     check running.name
     click_on 'Save Preferred Activities'
-    expect(page).to have_content(foosball)
-    expect(page).to have_content(running)
-    expect(page).to have_content('Preferred Activities Updated!')
+    #binding.pry
+    #save_and_open_page
+    expect(page).to have_content(foosball.name)
+    expect(page).to have_content(running.name)
+    expect(page).to have_content('User Information Successfully Updated!')
     Activity.destroy_all
 
   end
