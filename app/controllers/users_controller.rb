@@ -2,11 +2,11 @@ class UsersController < ApplicationController
   def index
     @users = User.all
     @activities = Activity.all
+    @events = Event.all
   end
 
   def show
     @user = current_user
-    @activities = Activity.all
   end
 
   def update
@@ -20,6 +20,6 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, activity_ids: [])
+    params.require(:user).permit(:first_name, :last_name, :email, activity_ids: [], event_ids: [])
   end
 end
