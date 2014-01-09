@@ -7,6 +7,9 @@ SimpleSocial::Application.routes.draw do
   end
   resources :activities, only: [:index, :show]
 
+  resources :users do
+    resources :events
+  end
 
   resources :contacts, only: [:new, :create]
   #resources :users

@@ -1,0 +1,6 @@
+<%= simple_form_for @event, url: user_events_path(current_user)  do |f| %>
+  <%= f.input :date, as: :date, start_year: Date.today.year - 90,
+    end_year: Date.today.year - 12, order: [:day, :month, :year] %>
+  <%= f.input :start_time, as: :time, ampm: true %>
+  <%= f.input :end_time, as: :time, ampm: true %>
+<% end %>
