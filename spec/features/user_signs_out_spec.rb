@@ -10,6 +10,4 @@ feature 'user signs out' do
     expect(page).to_not have_content('Sign Out')
     expect(page).to have_content('Signed Out. Come back soon!')
   end
-
-
 end

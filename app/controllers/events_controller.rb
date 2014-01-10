@@ -1,4 +1,6 @@
 class EventsController < ApplicationController
+  before_filter :authenticate_user!
+
   def index
     @events = Event.all
     @activities = Activity.all
@@ -24,6 +26,12 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @users = User.all
     @activities = Activity.all
+  end
+
+  def edit
+    #@event = current_user.events.find(params[:id])
+    @user = User.find(params[:user_id])
+    @event = @user.events.find(params[:id])
   end
 
   private

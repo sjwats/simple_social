@@ -1,6 +1,6 @@
 SimpleSocial::Application.routes.draw do
   devise_for :users
-  root 'pages#index'
+  root 'users#index'
   resources :pages, only: [:index]
   resources :users do
     resources :activities
