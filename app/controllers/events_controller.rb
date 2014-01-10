@@ -8,10 +8,11 @@ class EventsController < ApplicationController
   def new
     @event = Event.new
     @activities = Activity.all
+
   end
 
   def create
-    @event = Event.new(event_params)
+    @event = current_user.events.build(event_params)#builds the event for the current user
     if @event.save
       redirect_to user_event_path(current_user, @event), notice: 'Event Created Successfully'
       binding.pry
