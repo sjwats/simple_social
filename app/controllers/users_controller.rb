@@ -7,6 +7,8 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
+    @events = Event.all
+    @activities = Activity.all
   end
 
   def update
