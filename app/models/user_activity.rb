@@ -6,4 +6,5 @@ class UserActivity < ActiveRecord::Base
   validates_presence_of :activity
   validates_numericality_of :user_id
   validates_numericality_of :activity_id
+
 end

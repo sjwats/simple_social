@@ -1,13 +1,9 @@
 require 'spec_helper'
 
 describe Event do
-  #validate date and time with validates_timeliness gem?
-  it { should have_valid(:date).when(Date.parse("2013-12-20")) }
-  it { should_not have_valid(:date).when('12/32/2013', '12/0/2013', '13/2013') }
+  it { should validate_presence_of(:start_time) }
 
-  it { should have_valid(:start_time).when('12:20pm') }
-
-  it { should have_valid(:end_time).when('12:20am') }
+  it { should validate_presence_of(:end_time) }
 
   it { should have_valid(:location_name).when('TD Garden', 'Random park name') }
 
@@ -23,8 +19,6 @@ describe Event do
 
   it { should have_valid(:description).when("Let's play ball", "This is the activity. Yada yada description.") }
   it { should_not have_valid(:description).when(nil, '') }
-
-  it { should have_valid(:status).when(true, false) }
 
   it { should belong_to :activity }
 

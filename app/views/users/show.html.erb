@@ -1,0 +1,5 @@
+<h1> <%= current_user.first_name %> <%=current_user.last_name %> </h1>
+<%= current_user.email %><br>
+<%= current_user.activities.each do |activity| %>
+  <%= activity.name %><br>
+<% end %>

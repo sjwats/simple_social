@@ -47,14 +47,15 @@ group :test do
 end
 
 group :development, :test do
-      gem "rspec-rails"
-      gem "valid_attribute"
-      gem "shoulda-matchers"
-      gem "capybara"
-      gem "launchy"
-      gem "pry-rails"
-      gem "email_spec"
-      gem "mailcatcher"
+  gem "rspec-rails"
+  gem "valid_attribute"
+  gem "shoulda-matchers"
+  gem "capybara"
+  gem "launchy"
+  gem "pry-rails"
+  gem "email_spec"
+  gem "mailcatcher"
+  gem "timecop"
 end
 
 group :staging, :production do

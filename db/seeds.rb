@@ -5,3 +5,13 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+require 'csv'
+
+activities_file = Rails.root.join('db/data/activities.csv')
+
+CSV.foreach(activities_file, headers: true) do |row|
+  activity = Activity.find_or_initialize_by(name: row[0]) do |activity_name|
+    activity_name[:name] = row[0]
+  end
+  activity.save
+end
