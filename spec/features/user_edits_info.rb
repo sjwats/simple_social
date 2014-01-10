@@ -49,7 +49,6 @@ feature 'existing user edits personal info' do
     expect(page).to have_content('Biking')
     expect(page).to_not have_content(foosball.name)
     expect(page).to_not have_content(running.name)
-    Activity.destroy_all
   end
 
 
@@ -68,7 +67,8 @@ let(:description) { 'mas foosball' }
     build_event
     click_on 'Edit Event'
     fill_in 'Location', with: 'Anywhere'
-    click_on 'Create Event'
+    click_on 'Update Event'
+    save_and_open_page
     expect(page).to have_content('Successfully Updated!')
     expect(page).to have_content('Anywhere')
     expect(page).to have_content(num_invites)
@@ -76,7 +76,6 @@ let(:description) { 'mas foosball' }
     expect(page).to have_content(state)
     expect(page).to have_content(description)
     expect(page).to have_content(foosball.name)
-    Activity.destroy_all
   end
 
 end

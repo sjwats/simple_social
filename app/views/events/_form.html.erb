@@ -1,4 +1,4 @@
-<%= simple_form_for @event, url: user_events_path(current_user)  do |f| %>
+<%= simple_form_for [current_user, @event ] do |f| %>
   <%= f.association :activity, as: :select, collection: Activity.all %>
   <%= f.input :start_time, as: :datetime, ampm: true %>
   <%= f.input :end_time, as: :datetime, ampm: true %>
@@ -9,5 +9,5 @@
   <%= f.input :state %>
   <%= f.input :description %>
 
-  <%= f.submit 'Create Event' %>
+  <%= f.submit %>
 <% end %>

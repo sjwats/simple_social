@@ -29,9 +29,16 @@ class EventsController < ApplicationController
   end
 
   def edit
-    #@event = current_user.events.find(params[:id])
-    @user = User.find(params[:user_id])
-    @event = @user.events.find(params[:id])
+    @event = Event.find(params[:id])
+  end
+
+  def update
+    @event = Event.find(params[:id]) # has to match Edit with params[:id] otherwise undefined method `update' for nil:NilClass
+    if @event.update(event_params)
+      redirect_to user_event_path(current_user, @event), notice: 'Successfully Updated!'
+    else
+      render :edit
+    end
   end
 
   private

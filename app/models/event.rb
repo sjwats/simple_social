@@ -14,4 +14,6 @@ class Event < ActiveRecord::Base
     inverse_of: :event
   has_many :users,
     through: :user_events
+  has_many :comments,
+    inverse_of: :event
 end
