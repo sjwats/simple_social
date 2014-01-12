@@ -1,0 +1,9 @@
+<% @events.all.each do |event| %>
+  <%= event.activity.name %><br>
+  <%= event.description %><br>
+  <%= event.start_time %><br>
+  <%= event.location_name %><br>
+  <%= event.city %><br>
+  <%= event.state %><br>
+  <%= link_to 'View Details', user_event_path(current_user, event) %> <br>
+<% end %>

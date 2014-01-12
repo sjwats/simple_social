@@ -11,6 +11,10 @@ SimpleSocial::Application.routes.draw do
     resources :events
   end
 
+  resources :events do
+    resources :comments
+  end
+
   resources :contacts, only: [:new, :create]
   #resources :users
   #get 'users/:id' => 'users#show'

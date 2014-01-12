@@ -1,46 +1,68 @@
-<%= link_to 'Edit Event', edit_user_event_path %>
+<%= link_to 'Edit Event', edit_user_event_path(current_user, @event) %>
 
 <p>
   <strong>Activity:</strong>
   <%= @event.activity.name %>
-</p><br>
+</p>
 
 <p>
   <strong>Description:</strong>
   <%= @event.description %>
-</p><br>
+</p>
 
 <p>
   <strong>Start Time:</strong>
   <%= @event.start_time %>
-</p><br>
+</p>
 
 <p>
   <strong>End Time:</strong>
   <%= @event.end_time %>
-</p><br>
+</p>
 
 <p>
   <strong>Number of Attendees Desired:</strong>
   <%= @event.num_attendees_requested %>
-</p><br>
+</p>
 
 <p>
   <strong>Location:</strong>
   <%= @event.location_name %>
-</p><br>
+</p>
 
 <p>
   <strong>Address:</strong>
   <%= @event.street_address %>
-</p><br>
+</p>
 
 <p>
   <strong>City:</strong>
-  <%= @event.city %>
-</p><br>
+  <%= @event.city %>  <strong> State:</strong> <%= @event.state %>
+</p>
 
-<p>
-  <strong>State:</strong>
-  <%= @event.state %>
-</p><br>
+<%= simple_form_for [@event, @comment] do |f| %>
+  <%= f.input :name %>
+  <%= f.input :body %>
+  <%= f.submit "Post Comment", class: "button-round" %>
+<% end %>
+
+<% @event.comments.each do |comment| %>
+  <%= comment.name %><br>
+  <%= comment.body %><br>
+<% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

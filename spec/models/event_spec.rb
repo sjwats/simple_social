@@ -22,6 +22,8 @@ describe Event do
 
   it { should belong_to :activity }
 
+  it { should have_many :comments }
+
   it { should have_many :user_events }
 
   it { should have_many(:users).through(:user_events) }

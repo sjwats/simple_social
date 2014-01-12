@@ -1,13 +1,5 @@
 <% @events.all.each do |event| %>
   <% if current_user.activities.include?(event.activity) %>
-    <%= event.activity.name %><br>
-    <%= event.description %><br>
-    <%= event.start_time %><br>
-    <%= event.end_time %><br>
-    <%= event.num_attendees_requested %><br>
-    <%= event.location_name %><br>
-    <%= event.street_address %><br>
-    <%= event.city %><br>
-    <%= event.state %><br>
+    <%= render "events/event", event: event %>
   <% end %>
 <% end %>
