@@ -9,5 +9,13 @@
     <%= event.street_address %><br>
     <%= event.city %><br>
     <%= event.state %><br>
+    <% event.comments.each do |comment| %>
+        <%= comment.body %>
+        <%= comment.name %>
+    <% end %>
+    <%= simple_form_for [@event, @comment]  do |f| %>
+        <%= f.input :body %>
+        <%= f.input :name %>
+    <% end %>
   <% end %>
 <% end %>
