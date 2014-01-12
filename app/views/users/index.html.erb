@@ -1,21 +1,5 @@
 <% @events.all.each do |event| %>
   <% if current_user.activities.include?(event.activity) %>
-    <%= event.activity.name %><br>
-    <%= event.description %><br>
-    <%= event.start_time %><br>
-    <%= event.end_time %><br>
-    <%= event.num_attendees_requested %><br>
-    <%= event.location_name %><br>
-    <%= event.street_address %><br>
-    <%= event.city %><br>
-    <%= event.state %><br>
-    <% event.comments.each do |comment| %>
-        <%= comment.body %>
-        <%= comment.name %>
-    <% end %>
-    <%= simple_form_for [@event, @comment]  do |f| %>
-        <%= f.input :body %>
-        <%= f.input :name %>
-    <% end %>
+    <%= render "events/event", event: event %>
   <% end %>
 <% end %>

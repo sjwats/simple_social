@@ -1,13 +1,65 @@
 <%= simple_form_for [current_user, @event ] do |f| %>
-  <%= f.association :activity, as: :select, collection: Activity.all %>
-  <%= f.input :start_time, as: :datetime, ampm: true %>
-  <%= f.input :end_time, as: :datetime, ampm: true %>
-  <%= f.input :num_attendees_requested %>
-  <%= f.input :location_name %>
-  <%= f.input :street_address %>
-  <%= f.input :city %>
-  <%= f.input :state %>
-  <%= f.input :description %>
+  <div class="row">
+    <div class="small-3 columns">
+    <%= f.association :activity, as: :select, collection: Activity.all %>
+    </div>
+  </div>
 
-  <%= f.submit %>
+  <div class="row">
+    <div class="large-12 columns">
+      <div class="row collapse">
+        <div class="small-4 columns">
+          <%= f.input :start_time, as: :datetime, ampm: true %>
+        </div>
+        <div class="small-4 columns">
+          <%= f.input :end_time, as: :datetime, ampm: true %>
+        </div>
+        <div class="small-4 columns">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-3 columns">
+      <%= f.input :num_attendees_requested, class: "right inline" %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-6 columns">
+    <%= f.input :location_name, class: "right inline" %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-6 columns">
+    <%= f.input :street_address, class: "right inline" %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="large-3 columns">
+      <div class="row collapse">
+        <div class="small-12 columns">
+          <%= f.input :city  %>
+        </div>
+      </div>
+    </div>
+    <div class="large-3 columns">
+      <div class="row collapse">
+        <div class="small-12 columns">
+          <%= f.input :state, class: "inline"%>
+        </div>
+      </div>
+    </div>
+    <div class="large-6 columns">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-9 columns">
+    <%= f.input :description %>
+    </div>
+  </div>
+
+    <%= f.submit %>
 <% end %>

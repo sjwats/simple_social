@@ -3,12 +3,12 @@ module EventHelper
     click_on 'Create A New Event'
     select "#{Date.today.year + 1}", from: "event_start_time_1i"
     select "January", from: "event_start_time_2i"
-    select "9", from: "event_start_time_3i" #day
+    select "29", from: "event_start_time_3i" #day
     select "07 PM", from: "event_start_time_4i" #hour
     select "30", from: "event_start_time_5i" #minute
     select "#{Date.today.year + 1}", from: "event_end_time_1i"
     select "January", from: "event_end_time_2i"
-    select "9", from: "event_end_time_3i"
+    select "29", from: "event_end_time_3i"
     select "08 PM", from: "event_end_time_4i"
     select "30", from: "event_end_time_5i"
     fill_in 'Num attendees requested', with: 10
