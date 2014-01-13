@@ -22,7 +22,6 @@ feature 'user creates a new event' do
       expect(page).to have_content(state)
       expect(page).to have_content(description)
       expect(page).to have_content(foosball.name)
-      Activity.destroy_all
       user.destroy
     end
 
@@ -44,7 +43,6 @@ feature 'user creates a new event' do
       expect(page).to have_content(description)
       expect(page).to have_content(foosball.name)
       expect(page).to have_content('Running')
-      Activity.destroy_all
       user.destroy
     end
   end
@@ -72,7 +70,6 @@ feature 'user creates a new event' do
       within '.input.event_start_time' do
         expect(page).to have_content('must be before')
       end
-      user.destroy
     end
 
     scenario 'un-authenticated user tries to create event' do

@@ -12,12 +12,12 @@
 
 <p>
   <strong>Start Time:</strong>
-  <%= @event.start_time %>
+  <%= @event.start_time.to_s(:format_time) %>
 </p>
 
 <p>
   <strong>End Time:</strong>
-  <%= @event.end_time %>
+  <%= @event.end_time.to_s(:format_time) %>
 </p>
 
 <p>
