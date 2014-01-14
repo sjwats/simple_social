@@ -1,7 +1,31 @@
 <h1> <%= current_user.first_name %> <%=current_user.last_name %> </h1>
 <%= current_user.email %><br>
-<% current_user.activities.each do |activity| %>
-  <%= activity.name %><br>
-<% end %>
+
+  <div class="row">
+    <div class="large-12 columns">
+      <div class="row collapse">
+        <div class="small-4 columns">
+          <h2> My Favorite Activities </h2>
+            <ul>
+              <% current_user.activities.each do |activity| %>
+                <li><%= activity.name %></li>
+              <% end %>
+            </ul>
+        </div>
+        <div class="small-1 columns">
+        </div>
+        <div class="small-7 columns">
+          <h2> Events I've Created </h2>
+          <% current_user.events.each do |event| %>
+            <ul>
+              <li><bold>Event: <%= event.activity.name %></bold></li>
+              <li>Details: <%= event.description %></li>
+              <li>Location: <%= event.location_name %></li>
+            </ul>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 
 <%= link_to 'Edit Login Credentials', edit_user_registration_path(current_user) %>

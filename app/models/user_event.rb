@@ -1,11 +1,10 @@
 class UserEvent < ActiveRecord::Base
-  belongs_to :event
-  belongs_to :user
+  belongs_to :user,
+    inverse_of: :user_events
+
+  belongs_to :event,
+    inverse_of: :user_events
 
   validates_presence_of :user
   validates_presence_of :event
-  validates_numericality_of :user_id
-  validates_numericality_of :event_id
-
-
 end

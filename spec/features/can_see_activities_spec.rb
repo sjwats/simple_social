@@ -20,7 +20,6 @@ feature 'user can see list of activities' do
     expect(page).to have_content(foosball.name)
     expect(page).to have_content(running.name)
     expect(page).to have_content('User Information Successfully Updated!')
-    Activity.destroy_all
   end
 
   scenario 'visitor tries to view/create activities' do

@@ -1,3 +1,5 @@
+<h1>Recommended Events</h1>
+
 <% @events.all.each do |event| %>
   <% if current_user.activities.include?(event.activity) %>
     <%= render "events/event", event: event %>
