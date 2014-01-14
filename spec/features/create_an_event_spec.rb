@@ -22,7 +22,6 @@ feature 'user creates a new event' do
       expect(page).to have_content(state)
       expect(page).to have_content(description)
       expect(page).to have_content(foosball.name)
-      user.destroy
     end
 
     scenario 'user can see all events matching their activity prefs' do
@@ -43,7 +42,6 @@ feature 'user creates a new event' do
       expect(page).to have_content(description)
       expect(page).to have_content(foosball.name)
       expect(page).to have_content('Running')
-      user.destroy
     end
   end
 

@@ -16,7 +16,6 @@ feature 'Users can comment on an event' do
       sign_in_as(user)
       build_event
       click_on 'Comment'
-      save_and_open_page
       fill_in 'Body', with: 'Commentary'
       fill_in 'Name', with: 'Not real name'
       click_on 'Post Comment'

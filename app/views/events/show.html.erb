@@ -40,6 +40,7 @@
   <%= @event.city %>  <strong> State:</strong> <%= @event.state %>
 </p>
 
+<p>Comments</p>
 <%= simple_form_for [@event, @comment] do |f| %>
   <%= f.input :name %>
   <%= f.input :body %>

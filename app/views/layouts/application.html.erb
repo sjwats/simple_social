@@ -49,6 +49,23 @@
       <%= yield %>
     </div>
   </div>
+
+<footer class="row">
+  <div class="large-12 columns">
+    <hr>
+    <div class="small-3 columns">
+    </div>
+    <div class="small-3 columns">
+      <%= link_to 'Contact Us', new_contact_path %>
+    </div>
+    <div class="small-3 columns">
+      <%= link_to 'About', pages_path %>
+    </div>
+    </div>
+    <div class="small-3 columns">
+    </div>
+  </div>
+</footer>
     <%= javascript_include_tag "application" %>
   </body>
 </html>

@@ -3,8 +3,7 @@ class EventsController < ApplicationController
 
   def index
     @events = Event.all
-    @activities = Activity.all
-    @users = User.all
+
   end
 
   def new
@@ -24,8 +23,6 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
-    @users = User.all
-    @activities = Activity.all
     @comment = Comment.new
   end
 
