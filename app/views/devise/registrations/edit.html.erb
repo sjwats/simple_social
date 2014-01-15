@@ -11,6 +11,7 @@
     <%= f.input :date_of_birth, label: 'Date Of Birth', start_year: 1930, end_year: Date.today.year, required: false %>
     <%= f.input :home_town, label: 'Home Town', required: false %>
     <%= f.input :current_location, label: 'Current Location', required: false %>
+    <%= f.file_field :image, label: "Image" %>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>

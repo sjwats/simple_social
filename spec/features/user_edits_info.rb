@@ -78,4 +78,15 @@ let(:description) { 'mas foosball' }
     expect(page).to have_content(foosball.name)
   end
 
+#I can optionally include a profile photo as part of my profile editing
+#If I supply a photo, it must be a jpg, png, or gif
+#If I supply a photo, it cannot exceed 5MB
+  scenario 'user can optionally upload a profile photo' do
+    user = FactoryGirl.create(:user)
+    sign_in_as(user)
+    visit edit_user_registation
+    attach_file 'Image', Rails.root.join('spec/file_fixtures/valid_car_image.jpg')
+    expect(user.image.url).to be_present
+  end
+
 end

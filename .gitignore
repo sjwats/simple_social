@@ -17,4 +17,7 @@
 
 config/database.yml
 
+#Ignore all public image uploads
+public/uploads
+
 

@@ -1,29 +1,53 @@
-<h1> <%= current_user.first_name %> <%=current_user.last_name %> </h1>
-<%= current_user.email %><br>
+<div class="row">
+  <div class="large-12 columns">
+    <div class="small-5 columns">
+      <h2> <%= current_user.first_name %> <%=current_user.last_name %> </h2><br>
+      <%= image_tag current_user.image_url(:thumb) %>
+      <strong>Email:</strong> <%= current_user.email %><br>
+      <% unless current_user.date_of_birth.blank? %>
+        <strong>Date of Birth:</strong> <%= current_user.date_of_birth %>
+      <% end %> <br>
+      <% unless current_user.home_town.blank? %>
+        <strong>Home Town:</strong> <%= current_user.home_town %>
+      <% end %> <br>
+      <% unless current_user.current_location.blank? %>
+        <strong>Current Location:</strong> <%= current_user.current_location %>
+      <% end %><br>
+      <% unless current_user.about_me.blank? %>
+        <strong>About Me:</strong> <%= current_user.about_me %>
+      <% end %><br>
 
-  <div class="row">
-    <div class="large-12 columns">
-      <div class="row collapse">
-        <div class="small-5 columns">
-          <h2> My Favorite Activities </h2>
-            <ul>
-              <% current_user.activities.each do |activity| %>
-                <li><%= activity.name %></li>
-              <% end %>
-            </ul>
-        </div>
-        <div class="small-1 columns">
-        </div>
-        <div class="small-6 columns">
-          <h2> Events I've Created </h2>
-          <% current_user.events.each do |event| %>
-            <ul>
-              <li><bold>Event: <%= event.activity.name %></bold></li>
-              <li>Details: <%= event.description %></li>
-              <li>Location: <%= event.location_name %></li>
-            </ul>
-          <% end %>
-        </div>
-      </div>
+    </div>
+    <div class="small-7 columns">
     </div>
   </div>
+</div>
+
+
+
+
+    <div class="large-12 columns">
+      <div class="small-5 columns">
+        <h2> My Favorite Activities </h2>
+          <ul class="panel callout">
+            <% current_user.activities.each do |activity| %>
+              <li><%= activity.name %></li>
+            <% end %>
+          </ul>
+      </div>
+      <div class="small-1 columns">
+      </div>
+      <div class="small-6 columns">
+        <h2> Events I've Created </h2>
+        <% current_user.events.each do |event| %>
+
+            <ul class="panel callout radius">
+              <li>Event: <%= event.activity.name %></li>
+              <li>Start Time: <%= event.start_time.to_s(:format_time) %></li>
+              <li>Location: <%= event.location_name %></li>
+              <li><%= link_to 'View Details', user_event_path(current_user, event) %></li>
+            </ul>
+          <% end %>
+      </div>
+    </div>
+

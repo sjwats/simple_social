@@ -29,7 +29,7 @@ feature 'user creates a new event' do
       foosball = Activity.create(name: 'Foosball')
       running = Activity.create(name: 'Running')
       sign_in_as(user)
-      click_link 'Activities List'
+      click_link 'View/Select from List'
       check foosball.name
       check running.name
       click_on 'Save Preferred Activities'
@@ -51,7 +51,7 @@ feature 'user creates a new event' do
       foosball = Activity.create(name: 'Foosball')
       running = Activity.create(name: 'Running')
       sign_in_as(user)
-      click_on 'Create A New Event'
+      click_on 'Create New Event'
       click_on 'Create Event'
       within '.input.event_city' do
         expect(page).to have_content("can't be blank")
