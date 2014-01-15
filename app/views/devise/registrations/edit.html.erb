@@ -5,11 +5,16 @@
 
   <div class="form-inputs">
     <%= f.input :email, :required => true, :autofocus => true %>
+    <%= f.input :first_name, label: 'First Name', required: true, autofocus: true %>
+    <%= f.input :last_name, label: 'Last Name', required: true %>
+    <%= f.input :about_me, label: 'About Me', required: false %>
+    <%= f.input :date_of_birth, label: 'Date Of Birth', start_year: 1930, end_year: Date.today.year, required: false %>
+    <%= f.input :home_town, label: 'Home Town', required: false %>
+    <%= f.input :current_location, label: 'Current Location', required: false %>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
     <% end %>
-
     <%= f.input :password, :autocomplete => "off", :hint => "leave it blank if you don't want to change it", :required => false %>
     <%= f.input :password_confirmation, :required => false %>
     <%= f.input :current_password, :hint => "we need your current password to confirm your changes", :required => true %>

@@ -4,15 +4,21 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_filter :configure_permitted_parameters, if: :devise_controller?
+  before_filter :update_sanitized_params, if: :devise_controller?
 
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:sign_up) << [:first_name, :last_name, :role]
+    devise_parameter_sanitizer.for(:sign_up) << [:first_name, :last_name, :role, :date_of_birth, :about_me, :home_town, :current_location, :image]
+  end
+
+  def update_sanitized_params
+    devise_parameter_sanitizer.for(:account_update) {|u| u.permit(:password, :password_confirmation, :current_password, :first_name, :last_name, :role, :date_of_birth, :about_me, :home_town, :current_location, :image)}
   end
 
   def after_sign_out_path_for(resource_or_scope)
     new_user_session_path
   end
+
 
 end
