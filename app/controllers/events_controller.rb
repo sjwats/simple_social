@@ -24,6 +24,7 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     @comment = Comment.new
+    @users = User.all
   end
 
   def edit

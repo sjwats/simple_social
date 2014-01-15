@@ -1,7 +1,22 @@
 <h1>Recommended Events</h1>
 
-<% @events.all.each do |event| %>
-  <% if current_user.activities.include?(event.activity) %>
-    <%= render "events/event", event: event %>
-  <% end %>
-<% end %>
+<table>
+
+  <thead>
+    <tr>
+      <th width="150"><bold>Activity</bold></th>
+      <th width="200">Starts @</th>
+      <th width="150">Location</th>
+      <th width="150">City</th>
+      <th width="50">State</th>
+      <th width="100">Details</th>
+    </tr>
+  </thead>
+
+    <% @events.each do |event| %>
+      <% if current_user.activities.include?(event.activity) %>
+        <%= render "events/event", event: event %>
+      <% end %>
+    <% end %>
+
+</table>
