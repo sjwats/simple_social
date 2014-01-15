@@ -19,6 +19,7 @@ class ActivitiesController < ApplicationController
   end
 
   def show
+    binding.pry
     @activity = Activity.find(params[:id])
   end
   protected

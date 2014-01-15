@@ -1,5 +1,20 @@
-<%= link_to 'Create A New Event', new_user_event_path(current_user) %>
+<h1> Events </h1>
 
-<% @events.each do |event| %>
-  <%= render "events/event", event: event %>
-<% end %>
+<table>
+
+  <thead>
+    <tr>
+      <th width="150"><bold>Activity</bold></th>
+      <th width="200">Starts @</th>
+      <th width="150">Location</th>
+      <th width="150">City</th>
+      <th width="50">State</th>
+      <th width="100">Details</th>
+    </tr>
+  </thead>
+
+    <% @events.each do |event| %>
+      <%= render "events/event", event: event %>
+    <% end %>
+
+</table>
