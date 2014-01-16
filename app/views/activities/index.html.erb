@@ -1,7 +1,16 @@
-<h2> Select Your Favorite Activities </h2>
+<div class="small-12 small-centered columns">
+  <center><h2> What do you like to do? </h2></center>
+</div>
+
+<div class="small-5 columns"></div>
 
 <%= simple_form_for current_user do |f| %>
-  <%= f.association :activities, as: :check_boxes,collection: Activity.all %>
-  <%= f.submit 'Save Preferred Activities' %>
+  <div class="small-2 small-centered columns"
+    <ul>
+      <li><%= f.association :activities, as: :check_boxes,collection: Activity.all %></li>
+    </ul>
+      <input type="submit" class="button" value="Save Favorites" />
+  </div>
 <% end %>
 
+<div class="small-5 columns"></div>

@@ -29,18 +29,17 @@ feature 'user creates a new event' do
       foosball = Activity.create(name: 'Foosball')
       running = Activity.create(name: 'Running')
       sign_in_as(user)
-      click_link 'Activities List'
+      click_link 'View/Select from List'
       check foosball.name
       check running.name
       click_on 'Save Preferred Activities'
       build_events
       visit users_path
       expect(page).to have_content(location)
-      expect(page).to have_content(num_invites)
       expect(page).to have_content(city)
       expect(page).to have_content(state)
-      expect(page).to have_content(description)
       expect(page).to have_content(foosball.name)
+      expect(page).to have_content('View Details')
       expect(page).to have_content('Running')
     end
   end
@@ -51,7 +50,7 @@ feature 'user creates a new event' do
       foosball = Activity.create(name: 'Foosball')
       running = Activity.create(name: 'Running')
       sign_in_as(user)
-      click_on 'Create A New Event'
+      click_on 'Create New Event'
       click_on 'Create Event'
       within '.input.event_city' do
         expect(page).to have_content("can't be blank")

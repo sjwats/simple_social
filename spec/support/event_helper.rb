@@ -1,6 +1,6 @@
 module EventHelper
   def build_event
-    click_on 'Create A New Event'
+    click_on 'Create New Event'
     select "#{Date.today.year + 1}", from: "event_start_time_1i"
     select "January", from: "event_start_time_2i"
     select "29", from: "event_start_time_3i" #day
@@ -23,7 +23,7 @@ module EventHelper
 
   def build_events
     build_event
-    click_on 'Create A New Event'
+    click_on 'Create New Event'
     select "#{Date.today.year + 1}", from: "event_start_time_1i"
     select "January", from: "event_start_time_2i"
     select "9", from: "event_start_time_3i" #day

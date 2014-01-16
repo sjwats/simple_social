@@ -39,7 +39,7 @@ feature 'user signs in' do
     fill_in 'Password', with: user.password
     click_button 'Login'
     expect(page).to have_content('Sign Out')
-    expect(page).to_not have_content('Login')
+    expect(page).to_not have_content('Sign in')
 
     visit new_user_session_path
     expect(page).to have_content('You are already signed in.')

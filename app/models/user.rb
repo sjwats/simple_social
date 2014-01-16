@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  mount_uploader :image, ImageUploader
   has_many :user_events,
     inverse_of: :event
 
@@ -12,9 +13,6 @@ class User < ActiveRecord::Base
     through: :user_activities,
     inverse_of: :users
 
-  has_one :profile,
-    dependent: :destroy
-
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -26,6 +24,7 @@ class User < ActiveRecord::Base
   validates_presence_of :role
 
   #accepts_nested_attributes_for :events
+
 
 
   def is_admin?

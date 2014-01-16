@@ -42,6 +42,11 @@ gem 'foundation-rails'
 
 gem "validates_timeliness"
 
+gem "carrierwave"
+gem "mini_magick"
+
+gem "fog", "~> 1.3.1"
+
 group :test do
   gem "factory_girl_rails"
 end
@@ -56,6 +61,7 @@ group :development, :test do
   gem "email_spec"
   gem "mailcatcher"
   gem "timecop"
+  gem 'dotenv-rails'
 end
 
 group :staging, :production do
