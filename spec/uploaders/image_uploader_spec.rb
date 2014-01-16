@@ -3,7 +3,7 @@ require 'spec_helper'
 require 'carrierwave/test/matchers'
 
 describe ImageUploader do
-  include CarrierWave::Test::matchers
+  include CarrierWave::Test::Matchers
 
   let(:uploader) do
   ImageUploader.new(FactoryGirl.build(:user),

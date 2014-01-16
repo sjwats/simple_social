@@ -6,7 +6,7 @@ feature 'existing user edits personal info' do
     visit '/'
     sign_in_as(user)
     click_on "View Profile"
-    click_on 'Edit Login Credentials'
+    click_on 'Edit Info'
     fill_in 'Email', with: 'jack@black.com'
     fill_in 'Password', with: 'newpassword'
     fill_in 'Password confirmation', with: 'newpassword'
@@ -21,7 +21,7 @@ feature 'existing user edits personal info' do
     visit '/'
     sign_in_as(user)
     click_on 'View Profile'
-    click_on 'Edit Login Credentials'
+    click_on 'Edit Info'
     click_on 'Update'
     expect(page).to have_content('Please review the problems below')
     within '.input.user_current_password' do
@@ -68,7 +68,6 @@ let(:description) { 'mas foosball' }
     click_on 'Edit Event'
     fill_in 'Location', with: 'Anywhere'
     click_on 'Update Event'
-    save_and_open_page
     expect(page).to have_content('Successfully Updated!')
     expect(page).to have_content('Anywhere')
     expect(page).to have_content(num_invites)
@@ -87,6 +86,19 @@ let(:description) { 'mas foosball' }
     visit edit_user_registation
     attach_file 'Image', Rails.root.join('spec/file_fixtures/valid_car_image.jpg')
     expect(user.image.url).to be_present
+  end
+
+  scenario 'users can only delete their own events' do
+    user = FactoryGirl.create(:user)
+    foosball = Activity.create(name: 'Foosball')
+    sign_in_as(user)
+    build_event
+    click_on "View Profile"
+    click_on 'View details'
+    click_on 'Delete'
+    expect(page).to_not have_content('Foosball')
+    expect(page).to have_content('Event successfully deleted')
+
   end
 
 end
