@@ -14,53 +14,57 @@
   </head>
 
   <body>
-
-    <nav class="top-bar" data-topbar>
-      <ul class="title-area">
-        <li class="greeting">
-        </li>
-      </ul>
-      <section class="top-bar-section">
-        <ul class="left">
-          <% if user_signed_in? %>
-           <li class="has-dropdown">
-            <a href="#">Profile</a>
-              <ul class="dropdown">
-                <li><%= link_to 'Edit Info', edit_user_registration_path(current_user) %></li>
-                <li><%= link_to 'View Profile', user_path(current_user) %></li>
-              </ul>
-            </li>
-            <li class="has-dropdown">
-            <a href="#">Activities</a>
-              <ul class="dropdown">
-                <li class="active"> <%= link_to 'View/Select from List', user_activities_path(current_user) %> </li>
-              </ul>
-            </li>
-            <li class="has-dropdown">
-            <a href="#">Events</a>
-              <ul class="dropdown">
-                <li class="active"> <%= link_to 'Create New Event', new_user_event_path(current_user) %> </li>
-                <li class="active"> <%= link_to 'View Events', user_events_path(current_user) %> </li>
-              </ul>
-            </li>
-          <% else %>
-            <li class="active"><%= link_to 'Sign In', new_user_session_path %> </li>
-            <li class="active"><%= link_to 'Sign Up Here', new_user_registration_path %></li>
-          <% end %>
+    <div class="contain-to-grid">
+      <nav class="top-bar" data-topbar>
+        <ul class="title-area">
+          <li class="greeting">
+          </li>
         </ul>
-        <ul class="right">
-          <% if user_signed_in? %>
-            <li class="active"> <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %> </li>
-          <% end %>
-        </ul>
-      </section>
-    </nav>
-    <% if user_signed_in? %>
-      <strong> Hello, </strong> <%= current_user.first_name %>
-    <% end %>
-
+        <section class="top-bar-section">
+          <ul class="left">
+            <% if user_signed_in? %>
+             <li class="has-dropdown">
+              <a href="#">Profile</a>
+                <ul class="dropdown">
+                  <li class="active"><%= link_to 'Edit Info', edit_user_registration_path(current_user) %></li>
+                  <li><%= link_to 'View Profile', user_path(current_user) %></li>
+                </ul>
+              </li>
+              <li class="has-dropdown">
+              <a href="#">Activities</a>
+                <ul class="dropdown">
+                  <li class="active"> <%= link_to 'View/Select from List', user_activities_path(current_user) %> </li>
+                </ul>
+              </li>
+              <li class="has-dropdown">
+              <a href="#">Events</a>
+                <ul class="dropdown">
+                  <li class="active"> <%= link_to 'Create New Event', new_user_event_path(current_user) %> </li>
+                  <li class="active"> <%= link_to 'Recommendations', users_path(current_user) %> </li>
+                  <li class="active"> <%= link_to 'View Events', user_events_path(current_user) %> </li>
+                </ul>
+              </li>
+            <% else %>
+              <li data-reveal-id="signinModal"><%= link_to 'Sign In', new_user_session_path %> </li>
+              <li data-reveal-id="signupModal"><%= link_to 'Sign Up Here', new_user_registration_path %></li>
+              <div id="signupModal" class="reveal-modal small" data-reveal>
+                <a class="close-reveal-modal">&#215;</a>
+                <%= render 'devise/registrations/sign_up' %>
+            </div>
+            <% end %>
+          </ul>
+          <ul class="right">
+            <% if user_signed_in? %>
+              <li> <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %> </li>
+            <% end %>
+          </ul>
+        </section>
+      </nav>
+    </div>
+  <div class="row">
     <p class="notice"> <%= notice %> </p>
     <p class="alert"> <%= alert %> </p>
+  </div>
 
   <div class="row">
     <div class="small-12 columns">

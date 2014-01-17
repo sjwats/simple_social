@@ -15,21 +15,26 @@
       <strong>End Time:</strong>
       <%= @event.end_time.to_s(:format_time) %>
     </p>
+    <% unless @event.num_attendees_requested.nil? %>
+      <p>
+        <strong>Number of Attendees Desired:</strong>
+        <%= @event.num_attendees_requested %>
+      </p>
+    <% end %>
 
-    <p>
-      <strong>Number of Attendees Desired:</strong>
-      <%= @event.num_attendees_requested %>
-    </p>
+    <% unless @event.location_name.blank? %>
+      <p>
+        <strong>Location:</strong>
+        <%= @event.location_name %>
+      </p>
+    <% end %>
 
-    <p>
-      <strong>Location:</strong>
-      <%= @event.location_name %>
-    </p>
-
-    <p>
-      <strong>Address:</strong>
-      <%= @event.street_address %>
-    </p>
+    <% unless @event.street_address.blank? %>
+      <p>
+        <strong>Address:</strong>
+        <%= @event.street_address %>
+      </p>
+    <% end %>
 
     <p>
       <strong>City:</strong>
@@ -60,7 +65,7 @@
   <h5>Comments</h5>
   <% @event.comments.each do |comment| %>
     <%= comment.name %> says,<br><br>
-    "<%= comment.body %>"<br>
+    "<%= comment.body %>"<br><br>
   <% end %>
 </div>
 <br>

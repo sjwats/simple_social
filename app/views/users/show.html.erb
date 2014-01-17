@@ -1,23 +1,23 @@
-<div class="small-4 columns">
-  <h2> <%= current_user.first_name %> <%=current_user.last_name %> </h2><br>
+<div class="small-3 columns">
   <%= image_tag current_user.image_url(:thumb) %><br>
+  <h3> <%= current_user.first_name %> <%=current_user.last_name %> </h3><br>
   <h4>Personal Info</h4>
-    <strong>Email:</strong> <%= current_user.email %><br>
+    <strong>Email:</strong><br> <%= current_user.email %><br>
     <% unless current_user.date_of_birth.blank? %>
-      <strong>Date of Birth:</strong> <%= current_user.date_of_birth %>
+      <strong>Date of Birth:</strong><br> <%= current_user.date_of_birth %>
     <% end %> <br>
     <% unless current_user.home_town.blank? %>
-      <strong>Home Town:</strong> <%= current_user.home_town %>
+      <strong>Home Town:</strong><br> <%= current_user.home_town %>
     <% end %> <br>
     <% unless current_user.current_location.blank? %>
-      <strong>Current Location:</strong> <%= current_user.current_location %>
+      <strong>Current Location:</strong><br> <%= current_user.current_location %>
     <% end %><br>
     <% unless current_user.about_me.blank? %>
-      <strong>About Me:</strong> <%= current_user.about_me %>
+      <strong>About Me:</strong><br> <%= current_user.about_me %>
     <% end %><br>
 </div>
 
-<div class="small-8 columns">
+<div class="small-9 columns">
   <div class="small-5 columns">
     <h4> My Favorite Activities </h4>
     <ul class="panel callout">
