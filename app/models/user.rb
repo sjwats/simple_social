@@ -13,6 +13,10 @@ class User < ActiveRecord::Base
     through: :user_activities,
     inverse_of: :users
 
+    has_many :comments,
+      inverse_of: :user,
+      dependent: :nullify
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

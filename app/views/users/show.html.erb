@@ -19,7 +19,7 @@
 
 <div class="small-9 columns">
   <div class="small-5 columns">
-    <h4> My Favorite Activities </h4>
+    <h4>My Favorite Activities</h4>
     <ul class="panel callout">
       <% current_user.activities.each do |activity| %>
         <li><%= activity.name %></li>
@@ -35,6 +35,7 @@
         <li>Start Time: <%= event.start_time.to_s(:format_time) %></li>
         <li>Location: <%= event.location_name %></li>
         <li><%= link_to 'View Details', user_event_path(current_user, event) %></li>
+        <li><%= link_to 'Delete', user_event_path(current_user, event), method: :delete %></li>
       </ul>
     <% end %>
   </div>

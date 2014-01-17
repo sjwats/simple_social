@@ -1,5 +1,5 @@
-<h1>Event Details</h1>
 <div class="small-6 columns">
+  <h1>Event Details</h1>
   <div class="panel callout">
     <p>
       <strong>Activity:</strong>
@@ -54,17 +54,16 @@
 </div>
 
 <div class="small-6 columns">
-<h3>Comment</h3>
+<h3>Got something to say?</h3>
   <%= simple_form_for [@event, @comment] do |f| %>
     <div>
-      <%= f.input :name %>
       <%= f.input :body, label: 'Comment' %>
       <%= f.submit "Post Comment", class: "button-round" %>
     </div>
   <% end %>
-  <h5>Comments</h5>
+  <h5>Comments (<%=h @event.comments_count %>)</h5>
   <% @event.comments.each do |comment| %>
-    <%= comment.name %> says,<br><br>
+    <%= image_tag comment.user.image_url(:comment_mini) %> <%= comment.name %> says,<br><br>
     "<%= comment.body %>"<br><br>
   <% end %>
 </div>
