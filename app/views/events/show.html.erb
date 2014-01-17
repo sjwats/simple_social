@@ -46,7 +46,7 @@
       <%= @event.description %>
     </p>
 
-    <% if @event.users.first.id == current_user.id %>
+    <% if @event.users && @event.users.first == current_user %>
       <%= link_to 'Edit Event Details', edit_user_event_path(current_user, @event) %><br><br>
       <%= link_to 'Delete', user_event_path(current_user, @event), method: :delete %>
     <% end %>

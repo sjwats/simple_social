@@ -13,9 +13,13 @@ class User < ActiveRecord::Base
     through: :user_activities,
     inverse_of: :users
 
-    has_many :comments,
-      inverse_of: :user,
-      dependent: :nullify
+  has_many :comments,
+    inverse_of: :user,
+    dependent: :nullify
+
+  has_one :attendee,
+    inverse_of: :user
+
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

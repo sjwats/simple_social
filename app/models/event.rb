@@ -23,5 +23,8 @@ class Event < ActiveRecord::Base
     inverse_of: :event,
     dependent: :destroy
 
+  has_many :attendees,
+    inverse_of: :event
+
   #accepts_nested_attributes_for :users
 end
