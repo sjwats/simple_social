@@ -17,8 +17,8 @@ class User < ActiveRecord::Base
     inverse_of: :user,
     dependent: :nullify
 
-  has_one :attendee,
-    inverse_of: :user
+  # has_one :attendee,
+  #   inverse_of: :user
 
 
   # Include default devise modules. Others available are:

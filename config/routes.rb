@@ -8,7 +8,11 @@ SimpleSocial::Application.routes.draw do
   resources :activities, only: [:index, :show]
 
   resources :users do
-    resources :events
+    resources :events do
+      member do
+        post :join
+      end
+    end
   end
 
   resources :events do
