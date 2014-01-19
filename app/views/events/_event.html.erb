@@ -1,7 +1,12 @@
 <tr>
   <td><%= event.activity.name %></td>
   <td><%= event.start_time.to_s(:format_time) %></td>
-  <td><%= event.location_name %></td>
+  <td><% if event.user_events.length <= event.num_attendees_requested %>
+        OPEN
+      <% else %>
+        CLOSED
+      <% end %>
+  </td>
   <td><%= event.city %></td>
   <td><%= event.state %></td>
   <td><%= link_to 'View Details', user_event_path(current_user, event) %></td>

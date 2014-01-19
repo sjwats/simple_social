@@ -35,6 +35,6 @@ $(function(){ $(document).foundation(); });
 //which shifts the whole page upwards to fill
 //the empty space. Solution is taking that part out below.
 
-$('p.notice').fadeTo(2000, 0);
+$('p.notice').fadeTo(5000, 0);
 
-$('p.alert').fadeTo(2000, 0);
+$('p.alert').fadeTo(5000, 0);

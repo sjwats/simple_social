@@ -10,12 +10,15 @@ SimpleSocial::Application.routes.draw do
   resources :users do
     resources :events do
       member do
-        post :join
+        post :rsvp
+      end
+      member do
+        delete :cancel
       end
     end
   end
 
-  resources :events do
+  resources :events, only: [:show] do
     resources :comments
   end
 

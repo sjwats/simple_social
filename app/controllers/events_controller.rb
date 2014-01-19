@@ -27,10 +27,17 @@ class EventsController < ApplicationController
     @users = User.all
   end
 
-  def join
+  def rsvp
     @user = current_user
     @event = Event.find(params[:id])
     @event.users << @user
+    redirect_to user_event_path(@user, @event)
+  end
+
+  def cancel
+    @user = current_user
+    @event = Event.find(params[:id])
+    @event.users.delete(@user.id)
     redirect_to user_event_path(@user, @event)
   end
 

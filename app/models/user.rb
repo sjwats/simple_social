@@ -34,7 +34,6 @@ class User < ActiveRecord::Base
   #accepts_nested_attributes_for :events
 
 
-
   def is_admin?
     role == 'admin'
   end

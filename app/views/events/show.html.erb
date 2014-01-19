@@ -22,6 +22,11 @@
       </p>
     <% end %>
 
+    <p>
+      <strong> Number RSVP'd: </strong>
+      <%=h @event.user_events_count - 1 %>
+    </p>
+
     <% unless @event.location_name.blank? %>
       <p>
         <strong>Location:</strong>
@@ -46,7 +51,11 @@
       <%= @event.description %>
     </p>
 
-    <%= link_to "Join Event", join_user_event_path(current_user, @event), method: :post %>
+    <% if @event.users.include?(current_user) && @event.users.first != current_user %>
+      <%= link_to "Cancel RSVP", cancel_user_event_path(current_user, @event), method: :delete %>
+    <% elsif @event.users.length <= @event.num_attendees_requested && @event.users.first != current_user %>
+      <%= link_to "RSVP to Event", rsvp_user_event_path(current_user, @event), method: :post %> <br>
+    <% end %>
 
     <% if @event.users && @event.users.first == current_user %>
       <%= link_to 'Edit Event Details', edit_user_event_path(current_user, @event) %><br><br>
@@ -71,18 +80,3 @@
 </div>
 <br>
 <br>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

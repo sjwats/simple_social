@@ -3,7 +3,8 @@ class UserEvent < ActiveRecord::Base
     inverse_of: :user_events
 
   belongs_to :event,
-    inverse_of: :user_events
+    inverse_of: :user_events,
+    counter_cache: true
 
   validates_presence_of :user
   validates_presence_of :event
