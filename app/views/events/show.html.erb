@@ -52,20 +52,26 @@
     </p>
 
     <% if @event.users.include?(current_user) && @event.users.first != current_user %>
-      <%= link_to "Cancel RSVP", cancel_user_event_path(current_user, @event), method: :delete %>
+      <%= link_to "Cancel RSVP", cancel_user_event_path(current_user, @event), method: :delete %><br>
     <% elsif @event.users.length <= @event.num_attendees_requested && @event.users.first != current_user %>
       <%= link_to "RSVP to Event", rsvp_user_event_path(current_user, @event), method: :post %> <br>
     <% end %>
 
     <% if @event.users && @event.users.first == current_user %>
       <%= link_to 'Edit Event Details', edit_user_event_path(current_user, @event) %><br><br>
-      <%= link_to 'Delete', user_event_path(current_user, @event), method: :delete %>
+      <%= link_to 'Delete', user_event_path(current_user, @event), method: :delete %><br><br>
     <% end %>
+    <a href="#" data-reveal-id="attendeesModal" class="active"><p>See Who's Attending</p></a>
+    <div id="attendeesModal" class="reveal-modal" data-reveal>
+      <% @event.users.each do |user| %>
+        <%= image_tag user.image_url(:rsvp_mini) %> <%=link_to "#{user.first_name} #{user.last_name}", user_path(user) %><br>
+      <% end %>
+    </div>
   </div>
 </div>
 
 <div class="small-6 columns">
-<h3>Got something to say?</h3>
+<h3>Have something to say?</h3>
   <%= simple_form_for [@event, @comment] do |f| %>
     <div>
       <%= f.input :body, label: 'Comment' %>

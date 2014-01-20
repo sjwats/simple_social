@@ -33,7 +33,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   # end
 
   # Process files as they are uploaded:
-  process resize_to_fit: [400, 300]
+  process resize_to_fit: [150, 175]
   #
   # def scale(width, height)
   #   # do something
@@ -45,11 +45,17 @@ class ImageUploader < CarrierWave::Uploader::Base
    end
 
    version :comment_mini do
-    process resize_to_fit: [50, 50]
+    process resize_to_fill: [50, 50]
+   end
+
+   version :rsvp_mini do
+    process resize_to_fill: [75, 75]
    end
 
    def default_url
-    "/assets/default_profile/" + ["default_profile_image.jpg"].compact.join('_')
+    "/assets/default_profile/" + [:thumb, "profile_image.jpeg"].compact.join('_')
+    "/assets/default_profile/" + [:comment_mini, "profile_image.jpeg"].compact.join('_')
+    "/assets/default_profile/" + [:rsvp_mini, "profile_image.jpeg"].compact.join('_')
    end
 
   # Add a white list of extensions which are allowed to be uploaded.
