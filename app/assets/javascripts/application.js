@@ -17,3 +17,24 @@
 //= require_tree .
 
 $(function(){ $(document).foundation(); });
+
+
+//$('p.welcome').toggle(function() {
+//  $('p.welcome').show();
+//  $('p.welcome').stop().fadeTo(500, 1);
+//}, function() {
+//  $('p.welcome').stop().fadeTo(2000, 1,
+//      function(){$(this).hide()});
+//  } );
+
+// $('p.welcome').toggle(function() {
+//   $('p.welcome').fadeTo(2000, 1,
+//       function(){$(this).hide()});
+//   } );
+//The .hide portion above makes the elements disappear entirely
+//which shifts the whole page upwards to fill
+//the empty space. Solution is taking that part out below.
+
+$('p.notice').fadeTo(5000, 0);
+
+$('p.alert').fadeTo(5000, 0);

@@ -13,6 +13,14 @@ class User < ActiveRecord::Base
     through: :user_activities,
     inverse_of: :users
 
+  has_many :comments,
+    inverse_of: :user,
+    dependent: :nullify
+
+  # has_one :attendee,
+  #   inverse_of: :user
+
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -24,7 +32,6 @@ class User < ActiveRecord::Base
   validates_presence_of :role
 
   #accepts_nested_attributes_for :events
-
 
 
   def is_admin?

@@ -20,7 +20,12 @@ class Event < ActiveRecord::Base
     inverse_of: :events
 
   has_many :comments,
-    inverse_of: :event
+    inverse_of: :event,
+    dependent: :destroy
+
+  # has_many :attendees,
+  #   through: :user_events
+  #   inverse_of: :event
 
   #accepts_nested_attributes_for :users
 end
