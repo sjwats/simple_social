@@ -18,10 +18,8 @@
   </div>
   <div class="small-8 columns">
     <div>
-      <ul class="left">
+      <ul class="inline-list">
         <li class="active"><a href="#" data-reveal-id="activitiesModal"><h3>Favorite Activities</h3></a></li>
-      </ul>
-      <ul class="right">
         <li class="active"><a href="#" data-reveal-id="eventsModal"><h3>Events I'm Attending</h3></a></li>
       </ul>
     </div>
@@ -52,12 +50,13 @@
             <%= f.input :message %>
             <%= f.submit "Post Message", class: "button-round" %><br>
         <% end %>
-        <div>
-          <% @user.posts.each do |post| %>
+
+        <% @user.posts.each do |post| %>
+          <div class="panel">
           <%= image_tag User.find(post.poster_id).image_url(:comment_mini)%> <%= User.find(post.poster_id).first_name %> <%= User.find(post.poster_id).last_name %> posted on <%= post.created_at.to_s(:format_time) %> :<br>
             "<%= post.message %>"<br><br>
-          <% end %>
-        </div>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
