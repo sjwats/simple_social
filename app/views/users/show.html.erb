@@ -16,7 +16,7 @@
         <strong>About Me:</strong><br> <%= @user.about_me %>
       <% end %><br>
   </div>
-  <div class="small-9 small-centered columns">
+  <div class="small-9 columns">
     <div>
       <ul class="left">
         <li class="active"><a href="#" data-reveal-id="activitiesModal"><h3>Favorite Activities</h3></a></li>
@@ -46,8 +46,10 @@
       <% end %>
     </div>
   </div>
-  <div class="small-9 small-offset-3 columns">
-    <p> Post a Message to <%= @user.first_name %> </p>
+  <div class="row">
+    <div class="small-12">
+      <p> Post a Message to <%= @user.first_name %> </p>
+    </div>
   </div>
 </div>
 
