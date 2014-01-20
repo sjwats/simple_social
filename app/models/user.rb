@@ -17,6 +17,10 @@ class User < ActiveRecord::Base
     inverse_of: :user,
     dependent: :nullify
 
+  has_many :posts,
+    inverse_of: :user,
+    dependent: :destroy
+
   # has_one :attendee,
   #   inverse_of: :user
 

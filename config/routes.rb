@@ -18,6 +18,10 @@ SimpleSocial::Application.routes.draw do
     end
   end
 
+  resources :users, only: [:show] do
+    resources :posts
+  end
+
   resources :events, only: [:show] do
     resources :comments
   end

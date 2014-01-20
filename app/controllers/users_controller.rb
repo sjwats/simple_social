@@ -11,6 +11,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @events = Event.all
     @activities = Activity.all
+    @post = Post.new
   end
 
   def update
