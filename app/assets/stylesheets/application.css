@@ -13,7 +13,21 @@
 
  *= require_tree .
  */
+@import "foundation/functions";
+
 
  .body {
   background: #D9D2FF;
+}
+
+ul {
+  list-style: none;
+}
+
+a[data-reveal-id] h3 {
+    color: inherit;
+}
+
+a[data-reveal-id] p {
+    color: inherit;
 }

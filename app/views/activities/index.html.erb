@@ -5,12 +5,11 @@
 <div class="small-5 columns"></div>
 
 <%= simple_form_for current_user do |f| %>
-  <div class="small-3 small-centered columns"
-    <ul>
-      <li><%= f.association :activities, as: :check_boxes,collection: Activity.all %></li>
-    </ul>
-      <input type="submit" class="button" value="Save Favorites" />
+  <div class="small-3 small-centered columns">
+    <%= f.association :activities, as: :check_boxes,collection: Activity.all, label: '' %>
+    <input type="submit" class="button" value="Save Favorites" />
   </div>
 <% end %>
+
 
 <div class="small-4 columns"></div>

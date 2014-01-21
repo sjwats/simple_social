@@ -19,7 +19,11 @@ SimpleSocial::Application.routes.draw do
   end
 
   resources :users, only: [:show] do
-    resources :posts
+    resources :posts do
+      member do
+        delete :remove
+      end
+    end
   end
 
   resources :events, only: [:show] do

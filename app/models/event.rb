@@ -6,8 +6,8 @@ class Event < ActiveRecord::Base
   validates_presence_of :state
   validates_presence_of :activity
 
-  validates_time :start_time, before: :end_time
-  validates_time :end_time
+  validates_datetime :start_time, :on_or_after => lambda { DateTime.now }
+  validates_datetime :end_time, after: :start_time
 
   belongs_to :activity,
     inverse_of: :events
@@ -23,9 +23,4 @@ class Event < ActiveRecord::Base
     inverse_of: :event,
     dependent: :destroy
 
-  # has_many :attendees,
-  #   through: :user_events
-  #   inverse_of: :event
-
-  #accepts_nested_attributes_for :users
 end
