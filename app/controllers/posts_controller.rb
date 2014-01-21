@@ -10,6 +10,13 @@ class PostsController < ApplicationController
     end
   end
 
+  def remove
+    @post = Post.find(params[:id])
+    @user = User.find(@post.poster_id)#user id is the user whose wall was posted on
+    @post.delete
+    redirect_to user_path(User.find(params[:user_id]))
+  end
+
 
   protected
   def post_params

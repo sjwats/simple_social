@@ -20,45 +20,49 @@
     <div>
       <ul class="inline-list">
         <li class="active"><a href="#" data-reveal-id="activitiesModal"><h3>Favorite Activities</h3></a></li>
-        <li class="active"><a href="#" data-reveal-id="eventsModal"><h3>Events I'm Attending</h3></a></li>
+        <li class="active right"><a href="#" data-reveal-id="eventsModal"><h3>Events I'm Attending</h3></a></li>
       </ul>
     </div>
-    <div id="activitiesModal" class="reveal-modal" data-reveal>
-      <h4>Stuff I Like</h4>
-      <ul class="panel callout">
-        <% @user.activities.each do |activity| %>
-          <li><%= activity.name %></li>
-        <% end %>
-      </ul>
-      <a class="close-reveal-modal">&#215;</a>
-    </div>
-    <div id="eventsModal" class="reveal-modal" data-reveal>
-      <h4> Events I'm Attending </h4>
-      <% @user.events.each do |event| %>
-        <ul class="panel callout radius">
-          <li>Event: <%= event.activity.name %></li>
-          <li>Start Time: <%= event.start_time.to_s(:format_time) %></li>
-          <li>Location: <%= event.location_name %></li>
-          <li><%= link_to 'View Details', user_event_path(current_user, event) %></li>
+
+      <div id="activitiesModal" class="reveal-modal small" data-reveal>
+        <h4 class="text-center">Stuff I Like</h4>
+        <ul class="panel callout">
+          <% @user.activities.each do |activity| %>
+            <li class="text-center"><%= activity.name %></li>
+          <% end %>
         </ul>
-      <% end %>
-    </div>
+        <a class="close-reveal-modal">&#215;</a>
+      </div>
+      <div id="eventsModal" class="reveal-modal small" data-reveal>
+        <h4 class="text-center"> Events I'm Attending </h4>
+        <% @user.events.each do |event| %>
+          <ul class="panel callout radius text-center">
+            <li>Event: <%= event.activity.name %></li>
+            <li>Start Time: <%= event.start_time.to_s(:format_time) %></li>
+            <li>Location: <%= event.location_name %></li>
+            <li><%= link_to 'View Details', user_event_path(current_user, event) %></li>
+          </ul>
+        <% end %>
+      </div>
+
     <div class="row">
       <div class="small-12 columns">
         <p> Post a Message to <%= @user.first_name %> </p>
         <%= simple_form_for [@user, @post] do |f| %>
             <%= f.input :message %>
-            <%= f.submit "Post Message", class: "button-round" %><br>
+            <%= f.submit "Post Message", class: "button [tiny]" %><br>
         <% end %> <br>
 
         <% @user.posts.sort.reverse.each do |post| %>
           <div class="panel">
           <%= image_tag User.find(post.poster_id).image_url(:comment_mini)%> <%= link_to " #{User.find(post.poster_id).first_name} #{User.find(post.poster_id).last_name}", user_path(User.find(post.poster_id)) %> posted on <%= post.created_at.to_s(:format_time) %> :<br><br>
             "<%= post.message %>"<br><br>
+            <% if post.user_id == current_user.id || post.poster_id == current_user.id %>
+              <%= link_to "Delete Post", remove_user_post_path(@user, post), method: :delete %>
+            <% end %>
           </div>
         <% end %>
       </div>
     </div>
   </div>
-</div>
 
