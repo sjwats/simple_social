@@ -49,11 +49,11 @@
         <%= simple_form_for [@user, @post] do |f| %>
             <%= f.input :message %>
             <%= f.submit "Post Message", class: "button-round" %><br>
-        <% end %>
+        <% end %> <br>
 
-        <% @user.posts.each do |post| %>
+        <% @user.posts.sort.reverse.each do |post| %>
           <div class="panel">
-          <%= image_tag User.find(post.poster_id).image_url(:comment_mini)%> <%= User.find(post.poster_id).first_name %> <%= User.find(post.poster_id).last_name %> posted on <%= post.created_at.to_s(:format_time) %> :<br>
+          <%= image_tag User.find(post.poster_id).image_url(:comment_mini)%> <%= link_to " #{User.find(post.poster_id).first_name} #{User.find(post.poster_id).last_name}", user_path(User.find(post.poster_id)) %> posted on <%= post.created_at.to_s(:format_time) %> :<br><br>
             "<%= post.message %>"<br><br>
           </div>
         <% end %>
