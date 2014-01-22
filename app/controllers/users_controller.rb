@@ -15,11 +15,19 @@ class UsersController < ApplicationController
   end
 
   def update
-    if current_user.update(user_params)
-      current_user.save
-      redirect_to user_path, notice: 'User Information Successfully Updated!'
-    else
-      redirect_to user_activities_path
+    respond_to do |format|
+      if current_user.update(user_params)
+        format.html do
+          redirect_to user_path, notice: 'User Information Successfully Updated!'
+        end
+
+        format.json do
+          render json: current_user
+        end
+      else
+        format.html { redirect_to user_activities_path }
+        format.json
+      end
     end
   end
 

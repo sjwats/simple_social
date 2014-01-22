@@ -13,28 +13,31 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
-//= require turbolinks
 //= require_tree .
+//= require_self
 
-$(function(){ $(document).foundation(); });
+$(function(){
+  $(document).foundation();
 
+  $('p.notice').fadeTo(5000, 0);
+  $('p.alert').fadeTo(5000, 0);
+  $('.save-fav').hide();
 
-//$('p.welcome').toggle(function() {
-//  $('p.welcome').show();
-//  $('p.welcome').stop().fadeTo(500, 1);
-//}, function() {
-//  $('p.welcome').stop().fadeTo(2000, 1,
-//      function(){$(this).hide()});
-//  } );
+  $('.fav-activities').on('click', '.checkbox.button input', function(event) {
+    // event.preventDefault();
 
-// $('p.welcome').toggle(function() {
-//   $('p.welcome').fadeTo(2000, 1,
-//       function(){$(this).hide()});
-//   } );
-//The .hide portion above makes the elements disappear entirely
-//which shifts the whole page upwards to fill
-//the empty space. Solution is taking that part out below.
+    $checkbox = $(event.currentTarget);
+    $label = $checkbox.closest('label');
+    $form = $checkbox.closest('form');
 
-$('p.notice').fadeTo(5000, 0);
-
-$('p.alert').fadeTo(5000, 0);
+    $.ajax({
+      type: 'POST',
+      url: $form.attr('action'),
+      data: $form.serialize(),
+      dataType: 'json',
+      success: function() {
+        $label.toggleClass('checkbox-checked');
+      }
+    });
+  });
+});

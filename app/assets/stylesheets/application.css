@@ -8,26 +8,9 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
- *= require_self
+ *= require font-awesome
  *= require foundation_and_overrides
-
+ *= require responsive-tables
  *= require_tree .
+ *= require_self
  */
-@import "foundation/functions";
-
-
- .body {
-  background: #D9D2FF;
-}
-
-ul {
-  list-style: none;
-}
-
-a[data-reveal-id] h3 {
-    color: inherit;
-}
-
-a[data-reveal-id] p {
-    color: inherit;
-}
