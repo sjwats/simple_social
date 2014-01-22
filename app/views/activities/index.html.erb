@@ -2,14 +2,20 @@
   <center><h2> What do you like to do? </h2></center>
 </div>
 
-<div class="small-5 columns"></div>
 
 <%= simple_form_for current_user do |f| %>
-  <div class="small-3 small-centered columns">
-    <%= f.association :activities, as: :check_boxes,collection: Activity.all, label: '' %>
+    <ul class="small-block-grid-5">
+      <% Activity.all.each do |activity| %>
+        <li>
+          <label class="checkbox button expand", >
+            <%= check_box_tag 'user[activity_ids][]', activity.id, current_user.activities.include?(activity), class: "hide" %>
+            <i class="fa fa-square-o"></i>
+            <%=activity.name %>
+          </label>
+        </li>
+<% end %>
+    </ul>
     <input type="submit" class="button" value="Save Favorites" />
-  </div>
 <% end %>
 
 
-<div class="small-4 columns"></div>

@@ -61,7 +61,7 @@
       <%= link_to 'Edit Event Details', edit_user_event_path(current_user, @event) %><br><br>
       <%= link_to 'Delete', user_event_path(current_user, @event), method: :delete %><br><br>
     <% end %>
-    <a href="#" data-reveal-id="attendeesModal"><p>See Who's Attending</p></a>
+    <a href="#" data-reveal-id="attendeesModal">See Who's Attending</a>
     <div id="attendeesModal" class="reveal-modal" data-reveal>
       <% @event.users.each do |user| %>
         <%= image_tag user.image_url(:rsvp_mini) %> <%=link_to "#{user.first_name} #{user.last_name}", user_path(user) %><br>

@@ -8,12 +8,12 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
- *= require_self
+ *= require font-awesome
  *= require foundation_and_overrides
-
+ *= require responsive-tables
  *= require_tree .
+ *= require_self
  */
-@import "foundation/functions";
 
 
  .body {
@@ -28,6 +28,41 @@ a[data-reveal-id] h3 {
     color: inherit;
 }
 
-a[data-reveal-id] p {
-    color: inherit;
+.pages-body{
+  min-height: 100%;
+  min-width: 1024px;
+
+  /* proportionate scaling */
+  width: 100%;
+  height: auto;
+
+  /* positioning */
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: url("bg_image/walking.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
+
+@media screen and (max-width: 1024px) { /* Specific to this particular image */
+  .pages-body {
+    left: 50%;
+    margin-left: -512px;   /* 50% */
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
