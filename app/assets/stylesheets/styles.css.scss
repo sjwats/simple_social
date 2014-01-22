@@ -1,0 +1,64 @@
+.body {
+  background: #D9D2FF;
+}
+
+ul {
+  list-style: none;
+}
+
+a[data-reveal-id] h3 {
+    color: inherit;
+}
+
+.pages{
+  min-height: 100%;
+  min-width: 1024px;
+
+  /* proportionate scaling */
+  width: 100%;
+  height: auto;
+
+  /* positioning */
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: url("bg_image/walking.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+@media screen and (max-width: 1024px) { /* Specific to this particular image */
+  .pages {
+    left: 50%;
+    margin-left: -512px;   /* 50% */
+  }
+}
+
+.checkbox {
+  .fa-check-square-o { display: none; }
+  &:hover {
+    background-color: navy;
+  }
+}
+
+.checkbox-checked {
+  .fa-square-o { display: none; }
+  .fa-check-square-o { display: inline; }
+  background-color: pink;
+
+  &:hover {
+    background-color: navy;
+  }
+}
+
+
+
+
+
+
+
+
+
+

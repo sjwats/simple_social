@@ -3,19 +3,24 @@
 </div>
 
 
-<%= simple_form_for current_user do |f| %>
-    <ul class="small-block-grid-5">
-      <% Activity.all.each do |activity| %>
-        <li>
-          <label class="checkbox button expand", >
-            <%= check_box_tag 'user[activity_ids][]', activity.id, current_user.activities.include?(activity), class: "hide" %>
-            <i class="fa fa-square-o"></i>
-            <%=activity.name %>
-          </label>
-        </li>
-<% end %>
-    </ul>
-    <input type="submit" class="button" value="Save Favorites" />
+<%= simple_form_for(current_user,
+  html: { class: "fav-activities" }) do |f| %>
+
+  <ul class="small-block-grid-2 medium-block-grid-5">
+    <% Activity.all.each do |activity| %>
+      <li>
+        <% current_user_has_activity = current_user.activities.include?(activity) %>
+        <label class="checkbox button expand <%= 'checkbox-checked' if current_user_has_activity %>">
+          <%= check_box_tag 'user[activity_ids][]', activity.id, current_user_has_activity, class: "hide" %>
+          <i class="fa fa-square-o"></i>
+          <i class="fa fa-check-square-o"></i>
+          <%=activity.name %>
+        </label>
+      </li>
+    <% end %>
+  </ul>
+
+  <%= f.button :submit, text: "Save Favorites", class: "save-fav" %>
 <% end %>
 
 
