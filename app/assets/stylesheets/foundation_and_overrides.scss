@@ -35,7 +35,7 @@
 // $total-columns: 12;
 
 // We use these to control various global styles
-$body-bg: #E5F1FF;
+$body-bg: #FFFAD5;
 // $body-font-color: #222;
 // $body-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 // $body-font-weight: normal;
@@ -866,7 +866,8 @@ $body-bg: #E5F1FF;
 // $include-html-tabs-classes: $include-html-classes;
 
 // $tabs-navigation-padding: rem-calc(16);
-// $tabs-navigation-bg-color: #efefef  ;
+
+ $tabs-navigation-bg-color: #DB9E36  ;
 // $tabs-navigation-hover-bg-color: darken($tabs-navigation-bg-color, 5%);
 // $tabs-navigation-font-color: #222;
 // $tabs-navigation-font-size: rem-calc(16);
@@ -927,11 +928,11 @@ $body-bg: #E5F1FF;
 // $include-html-top-bar-classes: $include-html-classes;
 
 // Background color for the top bar
-// $topbar-bg-color: #fff;
+$topbar-bg-color: #105B63;
 // $topbar-bg: $topbar-bg-color;
 
 // Height and margin
-// $topbar-height: 45px;
+// $topbar-height: 70px;
 // $topbar-margin-bottom: 0;
 
 // Control Input height for top bar

@@ -1,76 +1,87 @@
-<div class="small-6 columns">
+<div class="small-7 columns">
   <h1>Event Details</h1>
-  <div class="panel callout">
-    <p>
-      <strong>Activity:</strong>
-      <%= @event.activity.name %>
-    </p>
+  <dl class="tabs" data-tab>
+    <dd class="active"><a href="#panel1a">Event Specs</a></dd>
+    <dd><a href="#panel2a">See Who's Attending</a></dd>
+  </dl>
 
-    <p>
-      <strong>Start Time:</strong>
-      <%= @event.start_time.to_s(:format_time) %>
-    </p>
+  <div class="tabs-content">
+    <div class="content active" id="panel1a">
+      <div class="panel">
+        <p>
+          <strong>Activity:</strong>
+          <%= @event.activity.name %>
+        </p>
 
-    <p>
-      <strong>End Time:</strong>
-      <%= @event.end_time.to_s(:format_time) %>
-    </p>
-    <% unless @event.num_attendees_requested.nil? %>
-      <p>
-        <strong>Number of Attendees Desired:</strong>
-        <%= @event.num_attendees_requested %>
-      </p>
-    <% end %>
+        <p>
+          <strong>Start Time:</strong>
+          <%= @event.start_time.to_s(:format_time) %>
+        </p>
 
-    <p>
-      <strong> Number RSVP'd: </strong>
-      <%=h @event.user_events_count - 1 %>
-    </p>
+        <p>
+          <strong>End Time:</strong>
+          <%= @event.end_time.to_s(:format_time) %>
+        </p>
+        <% unless @event.num_attendees_requested.nil? %>
+          <p>
+            <strong>Number of Attendees Desired:</strong>
+            <%= @event.num_attendees_requested %>
+          </p>
+        <% end %>
 
-    <% unless @event.location_name.blank? %>
-      <p>
-        <strong>Location:</strong>
-        <%= @event.location_name %>
-      </p>
-    <% end %>
+        <p>
+          <strong> Number RSVP'd: </strong>
+          <%=h @event.user_events_count - 1 %>
+        </p>
 
-    <% unless @event.street_address.blank? %>
-      <p>
-        <strong>Address:</strong>
-        <%= @event.street_address %>
-      </p>
-    <% end %>
+        <% unless @event.location_name.blank? %>
+          <p>
+            <strong>Location:</strong>
+            <%= @event.location_name %>
+          </p>
+        <% end %>
 
-    <p>
-      <strong>City:</strong>
-      <%= @event.city %>  <strong> State:</strong> <%= @event.state %>
-    </p>
+        <% unless @event.street_address.blank? %>
+          <p>
+            <strong>Address:</strong>
+            <%= @event.street_address %>
+          </p>
+        <% end %>
 
-    <p>
-      <strong>Description:</strong>
-      <%= @event.description %>
-    </p>
+        <p>
+          <strong>City:</strong>
+          <%= @event.city %>  <strong> State:</strong> <%= @event.state %>
+        </p>
 
-    <% if @event.users.include?(current_user) && @event.users.last != current_user %>
-      <%= link_to "Cancel RSVP", cancel_user_event_path(current_user, @event), method: :delete %><br><br>
-    <% elsif @event.users.length <= @event.num_attendees_requested && @event.users.first != current_user && !@event.users.include?(current_user) %>
-      <%= link_to "RSVP to Event", rsvp_user_event_path(current_user, @event), method: :post %> <br><br>
-    <% end %>
+        <p>
+          <strong>Description:</strong>
+          <%= @event.description %>
+        </p>
 
-    <% if @event.users && @event.users.last == current_user %>
-      <%= link_to 'Edit Event Details', edit_user_event_path(current_user, @event) %><br><br>
-      <%= link_to 'Delete Event', user_event_path(current_user, @event), method: :delete %><br><br>
-    <% end %>
-    <a href="#" data-reveal-id="attendeesModal">See Who's Attending</a>
-    <div id="attendeesModal" class="reveal-modal" data-reveal>
-      <% @event.users.each do |user| %>
-        <%= image_tag user.image_url(:rsvp_mini) %> <%=link_to "#{user.first_name} #{user.last_name}", user_path(user) %><br>
-      <% end %>
+        <% if @event.users.include?(current_user) && @event.users.last != current_user %>
+          <%= link_to "Cancel RSVP", cancel_user_event_path(current_user, @event), method: :delete %><br><br>
+        <% elsif @event.users.length <= @event.num_attendees_requested && @event.users.first != current_user && !@event.users.include?(current_user) %>
+          <%= link_to "RSVP to Event", rsvp_user_event_path(current_user, @event), method: :post %> <br><br>
+        <% end %>
+
+        <% if @event.users && @event.users.last == current_user %>
+          <%= link_to 'Edit Event Details', edit_user_event_path(current_user, @event) %><br><br>
+          <%= link_to 'Delete Event', user_event_path(current_user, @event), method: :delete %><br><br>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="content" id="panel2a">
+      <div class="panel">
+        <% @event.users.each do |user| %>
+          <%= image_tag user.image_url(:rsvp_mini) %> <%=link_to "#{user.first_name} #{user.last_name}", user_path(user) %><br>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
 
-<div class="small-6 columns">
+<div class="small-5 columns">
 <h3>Have something to say?</h3>
   <%= simple_form_for [@event, @comment] do |f| %>
     <div>
@@ -80,7 +91,7 @@
   <% end %>
   <h5>Comments (<%=h @event.comments_count %>)</h5>
   <% @event.comments.sort.reverse.each do |comment| %>
-    <div class="panel">
+    <div class="panel callout radius">
       <%= image_tag comment.user.image_url(:comment_mini) %> <%= comment.name %> says,<br><br>
       "<%= comment.body %>"<br><br>
     </div>

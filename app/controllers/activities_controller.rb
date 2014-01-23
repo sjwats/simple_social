@@ -3,6 +3,7 @@ class ActivitiesController < ApplicationController
 
   def index
     @activities = Activity.all
+    @contact = Contact.new
   end
 
   def new
