@@ -1,4 +1,4 @@
-<div class="small-6 small-centered columns">
+<div class="small-8 small-centered columns">
   <h1 class="text-center"> Contact Us </h1>
   <%= simple_form_for @contact do |f| %>
     <%= f.input :first_name %>
@@ -6,6 +6,6 @@
     <%= f.input :email %>
     <%= f.input :subject %>
     <%= f.input :description, as: :text %>
-    <%= f.submit 'Submit Contact Form' %>
+    <%= f.submit 'Submit Contact Form', class: "button" %>
   <% end %>
 </div>
