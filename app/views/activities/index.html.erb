@@ -1,5 +1,5 @@
 <div class="small-12 small-centered columns">
-  <center><h2> What do you like to do? </h2></center>
+  <h2 class="text-center"> What do you like to do? </h2>
 </div>
 
 
@@ -23,4 +23,12 @@
   <%= f.button :submit, text: "Save Favorites", class: "save-fav" %>
 <% end %>
 
+<h3 class="submitactivity text-center"> Want to add to the list?</h3>
+
+<h3 class="text-center" data-reveal-id="contactModal"><%= link_to "Let us know!", new_contact_path %></h3>
+
+<div id="contactModal" class="reveal-modal small" data-reveal>
+  <a class="close-reveal-modal">&#215;</a>
+  <%= render 'contacts/contact_us' %>
+</div>
 

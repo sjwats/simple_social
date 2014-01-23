@@ -53,12 +53,38 @@ a[data-reveal-id] h3 {
   }
 }
 
+.homeheader {
+  font-family: helvetica;
+  letter-spacing:3px;
+  font-size: 650%;
+  font-weight:50%;
+  text-shadow: 2px 2px #000000;
+}
 
+.tabs{
 
+  dd.active {
+    a{
+      background-color: #FFD34E;
+    }
 
+  }
+}
 
+.button {
+  background-color: #BD4932;
+}
 
+.nav {
+  background-color: #105B63;
 
+}
 
+nav.top-bar ul.title-area li.name {
+    display: table-cell;
+    vertical-align: middle;
+    vertical-align: text-center;
+    color: #ffffff;
+    text-align:center;
 
-
+  }
