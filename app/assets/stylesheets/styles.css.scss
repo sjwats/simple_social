@@ -10,31 +10,36 @@ a[data-reveal-id] h3 {
     color: inherit;
 }
 
-.pages{
-  min-height: 100%;
-  min-width: 1024px;
+// .pages{
+//   min-height: 100%;
+//   min-width: 1024px;
 
-  /* proportionate scaling */
-  width: 100%;
-  height: auto;
+//   /* proportionate scaling */
+//   width: 100%;
+//   height: auto;
 
-  /* positioning */
-  position: fixed;
-  top: 0;
-  left: 0;
-  background: url("bg_image/walking.jpg") no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+//   /* positioning */
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   background: url("bg_image/walking.jpg") no-repeat center center fixed;
+//   -webkit-background-size: cover;
+//   -moz-background-size: cover;
+//   -o-background-size: cover;
+//   background-size: cover;
+// }
+
+#walking{
+  background-image: url("bg_image/walking.jpg");
+  background-repeat: no-repeat;
 }
 
-@media screen and (max-width: 1024px) { /* Specific to this particular image */
-  .pages {
-    left: 50%;
-    margin-left: -512px;   /* 50% */
-  }
-}
+// @media screen and (max-width: 1024px) { /* Specific to this particular image */
+//   .pages {
+//     left: 50%;
+//     margin-left: -512px;   /* 50% */
+//   }
+// }
 
 .checkbox {
   .fa-check-square-o { display: none; }
@@ -58,7 +63,6 @@ a[data-reveal-id] h3 {
   letter-spacing:3px;
   font-size: 650%;
   font-weight:50%;
-  text-shadow: 2px 2px #000000;
 }
 
 .tabs{

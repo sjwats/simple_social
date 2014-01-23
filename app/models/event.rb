@@ -5,6 +5,7 @@ class Event < ActiveRecord::Base
   validates_presence_of :city
   validates_presence_of :state
   validates_presence_of :activity
+  validates_numericality_of :num_attendees_requested, greater_than_or_equal_to: 0
 
   validates_datetime :start_time, :on_or_after => lambda { DateTime.now }
   validates_datetime :end_time, after: :start_time
