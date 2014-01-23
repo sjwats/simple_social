@@ -29,17 +29,29 @@ a[data-reveal-id] h3 {
 //   background-size: cover;
 // }
 
-.div.walking {
-  background-image: url("bg_image/walking.jpg");
-  background-repeat: no-repeat;
-}
-
 // @media screen and (max-width: 1024px) { /* Specific to this particular image */
 //   .pages {
 //     left: 50%;
 //     margin-left: -512px;   /* 50% */
 //   }
 // }
+
+// .div#walking {
+//   background-image: url("bg_image/walking.jpg");
+//   background-repeat: no-repeat;
+// }
+
+// .container {
+//     width: 400px;
+//     height: 130px;
+// }
+
+/* resize images */
+.container img {
+    width: 100%;
+    height: auto;
+}
+
 
 .checkbox {
   .fa-check-square-o { display: none; }
