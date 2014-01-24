@@ -43,9 +43,10 @@ gem 'foundation-rails'
 gem "validates_timeliness"
 
 gem "carrierwave"
-gem "mini_magick"
 
-gem "fog", "~> 1.3.1"
+gem "fog"
+
+gem "mini_magick"
 
 group :test do
   gem "factory_girl_rails"
