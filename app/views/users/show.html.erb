@@ -2,19 +2,19 @@
     <%= image_tag @user.image_url(:thumb) %><br>
     <h3> <%= @user.first_name %> <%=@user.last_name %> </h3><br>
     <h4>Personal Info</h4>
-      <strong>Email:</strong><br> <%= @user.email %><br>
+      <strong>Email:</strong><br> <%= @user.email %><br><br>
       <% unless @user.date_of_birth.blank? %>
         <strong>Date of Birth:</strong><br> <%= @user.date_of_birth %>
-      <% end %> <br>
+      <% end %> <br><br>
       <% unless @user.home_town.blank? %>
         <strong>Home Town:</strong><br> <%= @user.home_town %>
-      <% end %> <br>
+      <% end %> <br><br>
       <% unless @user.current_location.blank? %>
         <strong>Current Location:</strong><br> <%= @user.current_location %>
-      <% end %><br>
+      <% end %><br><br>
       <% unless @user.about_me.blank? %>
         <strong>About Me:</strong><br> <%= @user.about_me %>
-      <% end %><br>
+      <% end %><br><br>
   </div>
   <div class="small-8 columns">
     <div>
