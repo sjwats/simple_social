@@ -58,13 +58,13 @@
           <%= @event.description %>
         </p>
 
-        <% if @event.users.include?(current_user) && @event.users.last != current_user %>
+        <% if @event.users.include?(current_user) && @event.users.first != current_user %>
           <%= link_to "Cancel RSVP", cancel_user_event_path(current_user, @event), method: :delete %><br><br>
         <% elsif @event.users.length <= @event.num_attendees_requested && @event.users.first != current_user && !@event.users.include?(current_user) %>
           <%= link_to "RSVP to Event", rsvp_user_event_path(current_user, @event), method: :post %> <br><br>
         <% end %>
 
-        <% if @event.users && @event.users.last == current_user %>
+        <% if @event.users && @event.users.first == current_user %>
           <%= link_to 'Edit Event Details', edit_user_event_path(current_user, @event) %><br><br>
           <%= link_to 'Delete Event', user_event_path(current_user, @event), method: :delete %><br><br>
         <% end %>
