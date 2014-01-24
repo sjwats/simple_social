@@ -12,7 +12,9 @@ class EventsController < ApplicationController
   end
 
   def create
+    @user = current_user
     @event = current_user.events.build(event_params)#builds the event for the current user
+    @event.creator = @user.id
     if @event.save
       redirect_to user_event_path(current_user, @event), notice: 'Event Created Successfully' #the route requires two inputs to get to the right place. check rake routes to see.
     else
