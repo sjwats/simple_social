@@ -12,8 +12,16 @@ class CommentsController < ApplicationController
     end
   end
 
+  def uncomment
+    @comment = Comment.find(params[:id])
+    @event = @comment.event
+    @user = User.find(@event.creator)
+    @comment.destroy
+    redirect_to user_event_path(@user, @event)
+  end
 
   protected
+
   def comment_params
     params.require(:comment).permit(:name, :body, :comment_count, :user_id)
   end
