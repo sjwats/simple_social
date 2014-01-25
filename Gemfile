@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby "2.0.0"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
@@ -21,9 +22,6 @@ gem 'coffee-rails', '~> 4.0.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
-
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
@@ -45,9 +43,10 @@ gem 'foundation-rails'
 gem "validates_timeliness"
 
 gem "carrierwave"
-gem "mini_magick"
 
-gem "fog", "~> 1.3.1"
+gem "fog"
+
+gem "mini_magick"
 
 group :test do
   gem "factory_girl_rails"
@@ -69,8 +68,6 @@ end
 group :staging, :production do
   gem 'rails_12factor'
 end
-
-ruby "2.0.0"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
