@@ -12,7 +12,7 @@ feature 'user sign up' do
       fill_in 'Password Confirmation', with: 'password'
       click_button 'Sign Up'
     end
-    expect(page).to have_content('Success! Welcome to Simple Social!')
+    expect(page).to have_content('Welcome to Simple Social! Please complete your profile')
     expect(page).to have_content('Sign Out')
   end
 

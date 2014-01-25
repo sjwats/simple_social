@@ -28,7 +28,11 @@ SimpleSocial::Application.routes.draw do
   end
 
   resources :events, only: [:show] do
-    resources :comments
+    resources :comments do
+      member do
+        delete :uncomment
+      end
+    end
   end
 
   resources :contacts, only: [:new, :create]
