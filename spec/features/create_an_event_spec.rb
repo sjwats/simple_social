@@ -8,6 +8,7 @@ feature 'user creates a new event' do
     let(:state) { 'MA' }
     let(:num_invites) { 10 }
     let(:description) { 'mas foosball' }
+    let(:creator) { 1 }
 
     scenario 'user creates an event with valid info' do
       user = FactoryGirl.create(:user)
@@ -22,6 +23,8 @@ feature 'user creates a new event' do
       expect(page).to have_content(state)
       expect(page).to have_content(description)
       expect(page).to have_content(foosball.name)
+      expect(page).to have_content('Edit Event Details')
+      expect(page).to have_content('Delete Event')
     end
 
     scenario 'user can see all events matching their activity prefs' do
@@ -32,10 +35,9 @@ feature 'user creates a new event' do
       click_link 'View/Select from List'
       check foosball.name
       check running.name
-      click_on 'Save Favorites'
+      click_on 'Update User'
       build_events
       visit users_path
-      expect(page).to have_content(location)
       expect(page).to have_content(city)
       expect(page).to have_content(state)
       expect(page).to have_content(foosball.name)

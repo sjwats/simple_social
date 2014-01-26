@@ -15,9 +15,7 @@ feature 'Users can comment on an event' do
       visit '/'
       sign_in_as(user)
       build_event
-      click_on 'Comment'
-      fill_in 'Body', with: 'Commentary'
-      fill_in 'Name', with: 'Not real name'
+      fill_in 'comment_body', with: 'Commentary'
       click_on 'Post Comment'
       expect(page).to have_content('Commentary')
       expect(page).to have_content('Comment successfully posted')
@@ -31,15 +29,9 @@ feature 'Users can comment on an event' do
       visit '/'
       sign_in_as(user)
       build_event
-      click_on 'Comment'
       click_on 'Post Comment'
       expect(page).to_not have_content('Comment successfully posted')
-      within '.input.comment_name' do
-        expect(page).to have_content("can't be blank")
-      end
-      within '.input.comment_body' do
-        expect(page).to have_content("can't be blank")
-      end
+      expect(page).to have_content("Comment can't be blank")
     end
   end
 end

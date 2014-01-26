@@ -12,5 +12,6 @@ FactoryGirl.define do
   city 'Boston'
   state 'MA'
   description 'mas foosball'
+  creator 1
   end
 end

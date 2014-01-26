@@ -8,7 +8,8 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to user_event_path(current_user, @event), notice: "Comment successfully posted"
     else
-      render template: "events/show"
+      # render template: "events/show"
+      redirect_to user_event_path(current_user, @event), notice: "Comment can't be blank"
     end
   end
 
