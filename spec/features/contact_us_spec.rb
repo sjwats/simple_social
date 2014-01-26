@@ -9,7 +9,9 @@ feature 'visitor can contact site staff' do
     click_link 'Contact Us'
     fill_in 'First name', with: 'John'
     fill_in 'Last name', with: 'Watson'
-    fill_in 'Email', with: 'john@watson.com'
+    within '.input.contact_email' do
+      fill_in 'Email', with: 'john@watson.com'
+    end
     fill_in 'Subject', with: 'Subject line'
     fill_in 'Description', with: 'Extremely detailed description'
     click_button 'Submit Contact Form'

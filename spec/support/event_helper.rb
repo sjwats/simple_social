@@ -11,7 +11,7 @@ module EventHelper
     select "29", from: "event_end_time_3i"
     select "08 PM", from: "event_end_time_4i"
     select "30", from: "event_end_time_5i"
-    fill_in 'Num attendees requested', with: 10
+    fill_in 'event_num_attendees_requested', with: 10
     fill_in 'Location name', with: 'Bar'
     fill_in 'Street address', with: '90 Comm Ave'
     fill_in 'City', with: 'Boston'
@@ -34,7 +34,7 @@ module EventHelper
     select "9", from: "event_end_time_3i"
     select "08 PM", from: "event_end_time_4i"
     select "30", from: "event_end_time_5i"
-    fill_in 'Num attendees requested', with: 15
+    fill_in 'event_num_attendees_requested', with: 10
     fill_in 'Location name', with: 'Trail'
     fill_in 'Street address', with: '90 Trail Ave'
     fill_in 'City', with: 'Boston'
