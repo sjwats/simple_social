@@ -44,13 +44,13 @@ class ImageUploader < CarrierWave::Uploader::Base
      process resize_to_fill: [150, 175]
    end
 
-   # version :comment_mini do
-   #  process resize_to_fill: [50, 50]
-   # end
+   version :comment_mini do
+    process resize_to_fill: [50, 50]
+   end
 
-   # version :rsvp_mini do
-   #  process resize_to_fill: [75, 75]
-   # end
+   version :rsvp_mini do
+    process resize_to_fill: [75, 75]
+   end
 
    def default_url
     ActionController::Base.helpers.asset_path("default_profile/" + [version_name, "profile_image.jpeg"].compact.join('_'))
