@@ -10,9 +10,9 @@ feature 'user signs in' do
   end
 
   scenario 'a non-member email and password is provided' do
-    visit '/'
-    click_link 'Sign In'
-    fill_in 'Email', with: 'not@member.com'
+    visit new_user_session_path
+    click_on 'Sign In'
+    fill_in 'User email', with: 'not@member.com'
     fill_in 'Password', with: 'youshallnotpass'
     click_button 'Login'
     expect(page).to have_content('Invalid email or password.')
@@ -22,8 +22,8 @@ feature 'user signs in' do
 
   scenario 'an existing email with a wrong password is denied' do
     user = FactoryGirl.create(:user)
-    visit '/'
-    click_link 'Sign In'
+    visit new_user_session_path
+    click_on 'Sign In'
     fill_in 'Email', with: user.email
     fill_in 'Password', with: 'notgonnawork'
     click_button 'Login'

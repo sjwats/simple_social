@@ -32,7 +32,7 @@ feature 'user creates a new event' do
       click_link 'View/Select from List'
       check foosball.name
       check running.name
-      click_on 'Save Preferred Activities'
+      click_on 'Save Favorites'
       build_events
       visit users_path
       expect(page).to have_content(location)
@@ -65,7 +65,7 @@ feature 'user creates a new event' do
         expect(page).to have_content("can't be blank")
       end
       within '.input.event_start_time' do
-        expect(page).to have_content('must be before')
+        expect(page).to have_content('must be on or after')
       end
     end
 

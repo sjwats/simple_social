@@ -5,7 +5,7 @@ feature 'user can see list of activities' do
     user = FactoryGirl.create(:user)
     sign_in_as(user)
     click_on 'View/Select from List'
-    expect(page).to have_content('Select Your Favorite Activities')
+    expect(page).to have_content('What Interests You?')
   end
 
   scenario 'user can select activities they prefer' do
@@ -16,7 +16,7 @@ feature 'user can see list of activities' do
     click_on 'View/Select from List'
     check foosball.name
     check running.name
-    click_on 'Save Preferred Activities'
+    click_on 'Save Favorites'
     expect(page).to have_content(foosball.name)
     expect(page).to have_content(running.name)
     expect(page).to have_content('User Information Successfully Updated!')
