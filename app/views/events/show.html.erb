@@ -65,7 +65,7 @@
 
         <% if @event.users.include?(current_user) && @event.creator != current_user.id %>
           <%= link_to "Cancel RSVP", cancel_user_event_path(current_user, @event), method: :delete %><br><br>
-        <% elsif @event.users.length <= @event.num_attendees_requested && @event.creator != current_user.id && !@event.users.include?(current_user) %>
+        <% elsif @event.users.count < @event.num_attendees_requested && @event.creator != current_user.id && !@event.users.include?(current_user) %>
           <%= link_to "RSVP to Event", rsvp_user_event_path(current_user, @event), method: :post %> <br><br>
         <% end %>
 
