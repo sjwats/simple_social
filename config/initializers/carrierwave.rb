@@ -5,5 +5,5 @@ CarrierWave.configure do |config|
     aws_secret_access_key: ENV['AWS_SECRET_KEY'],
     region: "us-east-1"
   }
-  config.fog_directory  = "simple-social-#{Rails.env}"
+  config.fog_directory  = "breakable-toy-#{Rails.env}"
 end

@@ -8,7 +8,7 @@ feature 'user can see list of activities' do
     expect(page).to have_content('What Interests You?')
   end
 
-  scenario 'user can select activities they prefer' do
+  scenario 'user can select and save activities they prefer' do
     user = FactoryGirl.create(:user)
     foosball = Activity.create(name: 'Foosball')
     running = Activity.create(name: 'Running')
