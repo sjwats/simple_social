@@ -1,7 +1,7 @@
 <tr>
   <td><%= event.activity.name %></td>
   <td><%= event.start_time.to_s(:format_time) %></td>
-  <td><% if event.user_events.length <= event.num_attendees_requested %>
+  <td><% if event.user_events.length - 1 < event.num_attendees_requested %>
         OPEN
       <% else %>
         CLOSED
