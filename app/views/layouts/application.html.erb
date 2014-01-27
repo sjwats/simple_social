@@ -39,8 +39,8 @@
               <a href="#">Events</a>
                 <ul class="dropdown">
                   <li class="active"> <%= link_to 'Create New Event', new_user_event_path(current_user) %> </li>
-                  <li class="active"> <%= link_to 'Recommendations', users_path(current_user) %> </li>
-                  <li class="active"> <%= link_to 'View Events', user_events_path(current_user) %> </li>
+                  <li class="active"> <%= link_to 'View Recommendations', users_path(current_user) %> </li>
+                  <li class="active"> <%= link_to 'View All Events', user_events_path(current_user) %> </li>
                 </ul>
               </li>
             <% else %>
