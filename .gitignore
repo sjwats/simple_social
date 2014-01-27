@@ -20,4 +20,4 @@ config/database.yml
 #Ignore all public image uploads
 public/uploads
 
-https://github.com/sjwats/simple_social/blob/master/.env
+.env
