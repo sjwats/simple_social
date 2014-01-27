@@ -49,6 +49,4 @@ feature 'user signs in' do
     expect(page).to_not have_content('Welcome Back!')
   end
 
-
-
 end
