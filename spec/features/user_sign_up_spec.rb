@@ -4,6 +4,7 @@ feature 'user sign up' do
   scenario 'user provides all valid and required information' do
     visit new_user_registration_path
     within '.signup' do
+      fill_in 'First Name', with: 'John'
       fill_in 'Last Name', with: 'Watson'
       fill_in 'Email', with: 'john@watson.com'
       fill_in 'user_password', with: 'password' #used css selector user_password to disambiguate for capybara
