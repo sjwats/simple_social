@@ -1,3 +1,10 @@
+Next step:
+
+  Add more javascript to make the site more interactive.
+  Work with geocoder and google maps to integrate a distance feature.
+  Add some more styling with CSS.
+
+
 == README
 
 This README would normally document whatever steps are necessary to get the
