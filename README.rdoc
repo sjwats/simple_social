@@ -3,6 +3,7 @@ Next step:
   Add more javascript to make the site more interactive.
   Work with geocoder and google maps to integrate a distance feature.
   Add some more styling with CSS.
+  Use more Ajax
 
 
 == README
