@@ -10,6 +10,8 @@ a[data-reveal-id] h3 {
     color: inherit;
 }
 
+nav.top-bar ul.title-area { margin-right:11px; } //adds margin to the right of the logo
+
 // .pages{
 //   min-height: 100%;
 //   min-width: 1024px;
@@ -102,5 +104,6 @@ nav.top-bar ul.title-area li.name {
     vertical-align: text-center;
     color: #ffffff;
     text-align:center;
+    margin-right:10px;
 
   }
